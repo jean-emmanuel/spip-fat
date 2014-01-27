@@ -1,0 +1,108 @@
+<BOUCLE_rubrique(RUBRIQUES){lang_select=non}{id_parent=0}{id_rubrique?}{par num titre}{0,1}><!DOCTYPE html>
+<html lang="#ENV{lang,#LANG}">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=#CHARSET" />
+	
+	<meta name="designer" content="Jean-Emmanuel Doucet"/>
+	<meta name="dcterms.license" content="Copyleft - Free Art License"/>
+	<link rel="schema.dcterms" href="http://artlibre.org/licence/lal/en"/>
+
+	<title>[(#TITRE|textebrut)]</title>
+	<meta name="description" content="[(#TEXTE|textebrut)]"/>
+	<meta property="og:title" content="[(#TITRE|textebrut)]"/>
+	<meta property="og:image" content="[(#LOGO_RUBRIQUE|image_reduire{280}|image_recadre{200,200,center}|extraire_attribut{src}|url_absolue)]"/>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"/>
+	<link rel="canonical" href="[(#NOM_SITE_SPIP|=={#TITRE}|?{#URL_SITE_SPIP,#URL_RUBRIQUE|url_absolue})]" />
+	[(#LOGO_RUBRIQUE|oui)
+	<script>var a=new Image(); a.src="[(#LOGO_RUBRIQUE|image_reduire{2000}|extraire_attribut{src}|url_absolue)]";</script>]
+	
+	<style>
+	html, body {height:100%;margin:0;background-color:#000;}
+	.title, .links {position:fixed;top:-1000px;}.title {color:rgba(255,255,255,0.9)!important;}
+	.home-container {position:relative;height:100%;width:100%;}
+	.bg-focus, .bg-blur {background-position:center;background-size:cover;background-attachment:scroll;position:fixed;height:100%;width:100%;top:0;left:0;}
+	[(#LOGO_RUBRIQUE|oui).bg-focus{background-image:url([(#LOGO_RUBRIQUE|image_reduire{2000}|extraire_attribut{src})])}]
+	[(#LOGO_RUBRIQUE_SURVOL|oui).bg-blur{background-image:url([(#LOGO_RUBRIQUE_SURVOL|image_reduire{2000}|extraire_attribut{src})])}@media only screen and (max-width: 440px) {.bg-focus{opacity:0!important}}]
+	[(#LOGO_RUBRIQUE_SURVOL|non).bg-focus{opacity:1!important}]
+	[(#DESCRIPTIF|non).title{margin-top:-50px!important} .links{margin-top:10px!important}]
+	/* FOUC Prevention */
+	</style>
+		
+	<script type="text/javascript">
+	function downloadJSAtOnload() {
+		var script1 = document.createElement("script");
+		var script2 = document.createElement("script");
+		var player = document.createElement("iframe");player.setAttribute('allowtransparency','true');
+		script1.src = "[(#CHEMIN{js/prefixfree.min.js}|url_absolue)]";
+		script2.src = "[(#CHEMIN{js/scripts.js}|url_absolue)]";
+		
+		#SET{layout,#CHEMIN{bclayout.txt}|url_absolue|replace{:,_3A}|replace{/,_2F}}[(#TITRE|islocal|oui)#SET{layout,http_3A_2F_2Fjean-emmanuel.github.io_2Fspip-fat_2Fbclayout.txt}]
+		[(#DESCRIPTIF|oui)player.src = "http://bandcamp.com/EmbeddedPlayer/v=2/album=[(#DESCRIPTIF|textebrut)]/layout=#GET{layout}/bgcol=FFFFFF/linkcol=333333/debug=true/transparent=true";]
+		document.body.appendChild(script1);
+		document.body.appendChild(script2);
+		[(#DESCRIPTIF|oui)document.getElementById("player").appendChild(player);]
+	}
+	if (window.addEventListener) window.addEventListener("load", downloadJSAtOnload, false);
+	else if (window.attachEvent) window.attachEvent("onload", downloadJSAtOnload);
+	else window.onload = downloadJSAtOnload;
+	</script>
+
+</head>
+<body>
+
+<div class="home-container">
+
+	<div class="bg-blur"></div>
+	<div class="bg-focus" id="bg-focus"></div>
+
+	<a class="title" href="[(#NOM_SITE_SPIP|=={#TITRE}|?{#URL_SITE_SPIP,#URL_RUBRIQUE|url_absolue})]">
+		<h1>#TITRE</h1>
+		<span>[(#TEXTE|textebrut)]</span>
+	</a>
+
+	[(#DESCRIPTIF|oui)<div class="player" id="player"></div>]
+	<B_liens>
+	<div class="links">
+		<ul class="links-list">
+			<BOUCLE_liens(SITES){lang_select=non}{id_rubrique}{par num nom_site, nom_site}><li><a href="#URL_SITE" title="#NOM_SITE"><i class="fa fa-[(#DESCRIPTIF|textebrut|sinon{link})]"></i><span>#NOM_SITE</span></a></li></BOUCLE_liens>
+		</ul>
+	</div>
+	</B_liens>
+
+</div>
+
+<B_articles>
+<div class="content-container">
+
+	<a href="#" id="knob"><i class="fa fa-angle-up"></i></a>
+
+	<div class="content">
+
+		<h1>#TITRE</h1>
+		
+		<p class="center">[(#TEXTE|textebrut)]</p>
+
+		<BOUCLE_articles(ARTICLES){lang_select=non}{id_rubrique}{par num titre, titre}>
+		<div class="article">
+		
+			<h2>#TITRE</h2>
+
+			[(#TEXTE|replace{\n,#EVAL{"chr(10)"}#EVAL{"chr(9)"}#EVAL{"chr(9)"}#EVAL{"chr(9)"}})]
+
+			[<div class="footnotes">(#NOTES)</div>]
+			
+			<div class="clear"></div>
+		</div>
+		
+		</BOUCLE_articles>
+		<a href="#" id="knob-bottom"><i class="fa fa-angle-double-down"></i></a>
+		<div id="layer"></div>
+	</div>
+	
+</div>
+</B_articles>
+	<link href="[(#CHEMIN{css/font-awesome.min.css}|url_absolue)]" rel="stylesheet" media="screen" type="text/css"/>
+	<link href="[(#CHEMIN{css/idangerous.swiper.css}|url_absolue)]" rel="stylesheet" media="screen" type="text/css"/>
+	<link href="[(#CHEMIN{css/style.css}|url_absolue)]" rel="stylesheet" media="screen" type="text/css"/>
+</body>
+</html></BOUCLE_rubrique>

@@ -1,0 +1,7 @@
+<BOUCLE_img (DOCUMENTS) {id_document} {mode=image} {tout}>
+<div class="spip_image ui-container[ (#ENV{noborder}|oui)noborder][ float-(#ENV{align}|match{left|right|center})]" style="width:[(#ENV{width,#LARGEUR})]px">
+	[<div class="ui-element top-left normal">(#ENV{titre}|sinon{#TITRE})</div>]
+	<img src="[(#FICHIER|image_reduire{398,0}|image_reduire{#ENV{width,0},0}|extraire_attribut{src}|url_absolue)]" alt="[(#TITRE|texte_backend|sinon{#URL_DOCUMENT})]"/>
+	[(#ENV{nolink}|non)<a href="#URL_DOCUMENT" target="_blank" class="ui-element bottom-right normal"><i class="fa fa-download"></i></a>]
+</div>
+</BOUCLE_img>

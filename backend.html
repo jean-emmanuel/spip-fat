@@ -1,0 +1,33 @@
+[(#HTTP_HEADER{Content-type: text/xml[; charset=(#CHARSET)]})]<BOUCLE_sousrubrique(RUBRIQUES){lang_select=non}{id_rubrique=#ENV{sr}}><?xml version="1.0"[ encoding="(#CHARSET)"]?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<BOUCLE_rubrique(HIERARCHIE){id_rubrique}{0,1}>#SET{titre,#TITRE|textebrut}#SET{url,#URL_RUBRIQUE|url_absolue}#SET{desc,#TEXTE|textebrut}</BOUCLE_rubrique>
+
+<channel[ xml:lang="(#LANG)"]>
+	<title>[(#GET{titre})] - [(#TITRE|textebrut)]</title>
+	<link>[(#NOM_SITE_SPIP|=={#GET{titre}}|?{#URL_SITE_SPIP,#GET{url})]/</link>
+	[<description>(#GET{desc})</description>]
+	<language>#LANG</language>
+
+#SET{articles_tri,#ARRAY}<BOUCLE_date_tri_futur(ARTICLES){id_rubrique}{id_mot?=#ENV{id_mot}}{par date}{age<0}>[(#SET{articles_tri, #GET{articles_tri}|array_merge{#ARRAY{#COMPTEUR_BOUCLE,#ID_ARTICLE}}})]</BOUCLE_date_tri_futur>[(#SET{compteur_present,#TOTAL_BOUCLE})]</B_date_tri_futur><BOUCLE_date_tri_passe(ARTICLES){id_rubrique}{id_mot?=#ENV{id_mot}}{par date}{inverse}{age>=0}>[(#SET{articles_tri, #GET{articles_tri}|array_merge{#ARRAY{#COMPTEUR_BOUCLE|plus{#GET{compteur_present}},#ID_ARTICLE}}})]</BOUCLE_date_tri_passe>
+
+<BOUCLE_articles(ARTICLES) {id_article IN #GET{articles_tri}}{0,10}{unique}>
+	<item[ xml:lang="(#LANG)"]>
+		<title>[(#TITRE|textebrut)]</title>
+		<link>[(#NOM_SITE_SPIP|=={#GET{titre}}|?{#URL_SITE_SPIP,#GET{url}})]</link>
+		<dc:date>[(#DATE|date_iso)]</dc:date>
+		<dc:format>text/html</dc:format>
+		<dc:language>#LANG</dc:language>
+		
+		<content:encoded>
+		&lt;div class='rss_texte'&gt;
+		[(#TEXTE|image_reduire{398,0}|texte_backend)]
+		&lt;/div&gt;
+		</content:encoded>
+
+	</item>
+</BOUCLE_articles>
+
+
+</channel>
+
+</rss></BOUCLE_sousrubrique>
