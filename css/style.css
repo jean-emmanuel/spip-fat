@@ -241,14 +241,14 @@ html, body {
 
 
 /*========== MEDIAS FRAMES ==========*/
-.vimeo, .bandcamp  {
+.vimeo, .bandcamp, .youtube, .dailymotion  {
 	height:218px;
 	margin-top:20px;
 	background-color:#fff;
 	background-size:cover;
 	background-position:center;
 }
-.vimeo iframe, .bandcamp iframe  {
+.vimeo iframe, .bandcamp iframe, .youtube iframe, .dailymotion iframe  {
 	border:0;
 	display:block;
 	width:100%;
@@ -463,7 +463,7 @@ html, body {
 .ui-element{
 	font-size:16px;
 	line-height:20px;
-	height:20px;
+	min-height:20px;
 	border:0;
 	outline:0;
 	color:#fff;
