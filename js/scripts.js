@@ -129,6 +129,12 @@ $('.swiper-slide').each(function(){
 });
 /*========== /SLIDER ==========*/
 
+/*========== IMG ==========*/
+$('.spip_image').each(function(){
+	$(this).css('background-image','url('+$(this).attr('data-bg')+')');
+});
+/*========== /IMG ==========*/
+
 /*========== ARTICLES LIST (ajax) ==========*/
 function ajaxListInit() {
 	$('.sub-article-list').each(function(){
