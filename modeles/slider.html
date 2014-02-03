@@ -3,7 +3,7 @@
 	<div class="swiper-container" id="#ENV{id}">
 		[<div class="ui-element top-left normal">(#ENV{titre}|sinon{#ENV{title}})</div>]
 		<div class="swiper-wrapper">
-		<BOUCLE_slider (DOCUMENTS){id_article=#ENV{id}}{extension==jpg|gif|png|jpeg}{par num titre, titre} {mode=image}>
+		<BOUCLE_slider (DOCUMENTS){id_article=#ENV{id}}{extension==jpg|gif|png|jpeg}{par num titre, titre}>
 			<div class="swiper-slide" data-bg="[(#FICHIER|image_reduire{#ENV{width,1280}}|extraire_attribut{'src'}|url_absolue)]"><div class="alt"><a href="#URL_DOCUMENT">#COMPTEUR_BOUCLE - [(#TITRE|texte_backend|sinon{#URL_DOCUMENT})]</a></div>[<div class="ui-element bottom-right">(#CREDITS)</div>]</div>
 		</BOUCLE_slider>
 		</div>
