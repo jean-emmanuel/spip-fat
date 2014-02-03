@@ -31,11 +31,13 @@
 	<script type="text/javascript">
 	function downloadJSAtOnload() {
 		var script1 = document.createElement("script");
-		var player = document.createElement("iframe");player.setAttribute('allowtransparency','true');
+		[(#DESCRIPTIF|oui)var player = document.createElement("iframe");player.setAttribute('allowtransparency','true');]
 		script1.src = "[(#CHEMIN{js/scripts.js}|url_absolue)]";
 		
+		[(#DESCRIPTIF|oui)
 		#SET{layout,#CHEMIN{bclayout.txt}|url_absolue|replace{:,_3A}|replace{/,_2F}}[(#TITRE|islocal|oui)#SET{layout,http_3A_2F_2Fjean-emmanuel.github.io_2Fspip-fat_2Fbclayout.txt}]
-		[(#DESCRIPTIF|oui)player.src = "http://bandcamp.com/EmbeddedPlayer/v=2/album=[(#DESCRIPTIF|textebrut)]/layout=#GET{layout}/bgcol=FFFFFF/linkcol=333333/debug=true/transparent=true";]
+		player.src = "http://bandcamp.com/EmbeddedPlayer/v=2/album=[(#DESCRIPTIF|textebrut)]/layout=#GET{layout}/bgcol=FFFFFF/linkcol=333333/debug=true/transparent=true";]
+		
 		document.body.appendChild(script1);
 		[(#DESCRIPTIF|oui)document.getElementById("player").appendChild(player);]
 	}
