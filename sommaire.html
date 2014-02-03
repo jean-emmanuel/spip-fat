@@ -8,7 +8,7 @@
 	<link rel="schema.dcterms" href="http://artlibre.org/licence/lal/en"/>
 
 	<title>[(#TITRE|textebrut)]</title>
-	<meta name="description" content="[(#TEXTE|textebrut)]"/>
+	<meta name="description" content="[(#TEXTE|textebrut|replace{'"',"'"})]"/>
 	<meta property="og:title" content="[(#TITRE|textebrut)]"/>
 	<meta property="og:image" content="[(#LOGO_RUBRIQUE|image_reduire{280}|image_recadre{200,200,center}|extraire_attribut{src}|url_absolue)]"/>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"/>
@@ -31,15 +31,12 @@
 	<script type="text/javascript">
 	function downloadJSAtOnload() {
 		var script1 = document.createElement("script");
-		var script2 = document.createElement("script");
 		var player = document.createElement("iframe");player.setAttribute('allowtransparency','true');
-		script1.src = "[(#CHEMIN{js/prefixfree.min.js}|url_absolue)]";
-		script2.src = "[(#CHEMIN{js/scripts.js}|url_absolue)]";
+		script1.src = "[(#CHEMIN{js/scripts.js}|url_absolue)]";
 		
 		#SET{layout,#CHEMIN{bclayout.txt}|url_absolue|replace{:,_3A}|replace{/,_2F}}[(#TITRE|islocal|oui)#SET{layout,http_3A_2F_2Fjean-emmanuel.github.io_2Fspip-fat_2Fbclayout.txt}]
 		[(#DESCRIPTIF|oui)player.src = "http://bandcamp.com/EmbeddedPlayer/v=2/album=[(#DESCRIPTIF|textebrut)]/layout=#GET{layout}/bgcol=FFFFFF/linkcol=333333/debug=true/transparent=true";]
 		document.body.appendChild(script1);
-		document.body.appendChild(script2);
 		[(#DESCRIPTIF|oui)document.getElementById("player").appendChild(player);]
 	}
 	if (window.addEventListener) window.addEventListener("load", downloadJSAtOnload, false);
