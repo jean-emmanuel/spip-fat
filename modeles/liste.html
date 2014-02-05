@@ -13,7 +13,7 @@
 #ANCRE_PAGINATION
 <div class="sub-article-list" id="list#ENV{id_rubrique}">
 	<BOUCLE_list(ARTICLES) {lang_select=non}{id_article IN #GET{articles_tri}}{pagination #ENV{pagination,5} #ENV{id_rubrique}}>
-	<div itemprop="event" itemscope itemtype="http://schema.org/Event" class="sub-article[ (#COMPTEUR_BOUCLE|<={#GET{compteur_present}}|oui)futur][ (#ENV{date}|affdate|=={#DATE|affdate}|oui)today][ (#COMPTEUR_BOUCLE|=={1}|oui)focus]">
+	<div itemprop="event" itemscope itemtype="http://schema.org/Event" class="sub-article[ (#COMPTEUR_BOUCLE|>{#GET{compteur_present}}|oui)past][ (#COMPTEUR_BOUCLE|<={#GET{compteur_present}}|oui)futur][ (#ENV{date}|affdate|=={#DATE|affdate}|oui)today][ (#COMPTEUR_BOUCLE|=={1}|oui)focus]">
 		<a class="sub-article-title" href="#" onclick="$(this).parent('div').toggleClass('focus');return false"><h3><i class="star fa fa-star"></i>&nbsp; <span itemprop="name">#TITRE</span> [(#ENV{date}|!={0}|oui)<meta itemprop="startDate" content="[(#DATE|affdate{'c'})]"/><span class="sub-article-date" title="[(#DATE|affdate_heure)]">[(#DATE|affdate)][ (#COMPTEUR_BOUCLE|<={#GET{compteur_present}}|oui)<i class="fa fa-clock-o"></i>][ (#ENV{date}|affdate|=={#DATE|affdate}|oui)<i class="fa fa-exclamation-circle"></i>]</span>]</h3></a>
 		<a itemprop="url" href="#list#ENV{id_rubrique}"></a>
 		[<div itemprop="description" class="sub-article-text">

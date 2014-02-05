@@ -338,9 +338,18 @@ html, body {
 	border-top:1px solid #fff;
 	border-bottom:1px solid #ccc;
 	padding-bottom:18px;
+	padding-left:3px;
+	padding-right:3px;
 	max-height:40px;
 	overflow:hidden;
 }
+.sub-article.past {
+	background:rgba(0,0,0,0.1);
+}
+.sub-article.today {
+	background:rgba(255,255,0,0.1);
+}
+
 .sub-article:first-child {
 	border-top:0;
 }
