@@ -9,7 +9,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_texte_explicatif' => 'Description de la page (meta) et sous titre.',
 	'logo_rubrique' => 'Image de fond',
 	'logo_survol' => 'Image de fond secondaire',
-	'entree_description_site' => 'Classe de l\'icone pour le lien : voir sur <a href="?exec=icones" target="_blank">Liste des Icones</a>. Par exemple : fa-vimeo-square pour l\'icone vimeo.',
+	'entree_description_site' => 'Classe de l\'icone pour le lien : voir sur <a href="?exec=icones" target="_blank">Liste des Icones</a>. Par exemple : vimeo-square pour l\'icone vimeo.',
 	'titre_sites_references_rubrique' => 'Liens',
 	'icone_referencer_nouveau_site' => 'Ajouter un lien',
 	'icone_modifier_site' => 'Modifier ce lien',
