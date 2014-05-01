@@ -235,8 +235,8 @@ html, body {
 }
 .content {
 	margin:0 auto;
-	max-width:960px;
-	width:540px;
+	max-width:100%;
+	width:460px;
 	text-align:justify;
 	padding:20px 20px 0;
 	hyphens: auto;
@@ -271,7 +271,7 @@ html, body {
 
 /*========== MEDIAS FRAMES ==========*/
 .vimeo, .bandcamp, .youtube, .dailymotion  {
-	height:260px;
+	height:220px;
 	margin-top:20px;
 	background-color:#fff;
 	background-size:cover;
@@ -281,7 +281,7 @@ html, body {
 	border:0;
 	display:block;
 	width:100%;
-	height:258px;
+	height:218px;
 	background:transparent;
 }
 .bandcamp iframe, .bandcamp {
@@ -313,14 +313,14 @@ html, body {
 
 /*========== SLIDER ==========*/
 .slider {
-	height: 260px;
+	height: 220px;
 	margin-top:20px;
 }
 .swiper-container {
-	height: 260px;
+	height: 220px;
 }	
 .swiper-slide {
-	height: 260px;
+	height: 220px;
 	background-size:cover;
 	background-position:center;
 	background-color:#000;
