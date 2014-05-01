@@ -33,7 +33,7 @@
 		script1.src = "[(#CHEMIN{js/scripts.js}|url_absolue)]";
 		
 		[(#DESCRIPTIF|oui)
-		player.src = "http://bandcamp.com/EmbeddedPlayer/album=[(#DESCRIPTIF|textebrut)]/size=small/bgcol=ffffff/linkcol=0687f5/artwork=none/transparent=true/";]
+		player.src = "http://bandcamp.com/EmbeddedPlayer/album=[(#DESCRIPTIF|textebrut)]/size=small/bgcol=333333/linkcol=ffffff/artwork=none/transparent=true/";]
 	
 		document.body.appendChild(script1);
 		[(#DESCRIPTIF|oui)document.getElementById("player").appendChild(player);]
@@ -48,28 +48,27 @@
 
 <div class="home-container">
 
-	<div class="bg-blur"></div>
 	<div class="bg-focus" id="bg-focus"></div>
-
-  <div class="top">
-    
+ [(#DESCRIPTIF|oui)<div class="player" id="player"></div>]
   
+  
+  <div class="top">
 
-	
+	  <a class="title" href="[(#NOM_SITE_SPIP|=={#TITRE}|?{#URL_SITE_SPIP,#URL_RUBRIQUE|url_absolue})]">
+		  <h1>#TITRE</h1>
+		  <span>[(#TEXTE|textebrut)]</span>
+	  </a>
 	  <B_liens>
 	  <div class="links">
 		  <ul class="links-list">
-		      [<li>(#DESCRIPTIF|oui)<div class="player" id="player"></div></li>]
+		     
 			  <BOUCLE_liens(SITES){lang_select=non}{id_rubrique}{par num nom_site, nom_site}><li><a href="#URL_SITE" title="#NOM_SITE"><i class="fa fa-[(#DESCRIPTIF|textebrut|sinon{link})]"></i><span>#NOM_SITE</span></a></li></BOUCLE_liens>
 		  </ul>
 	  </div>
 	  </B_liens>
-	  </div>
+	  
+  </div>
 
-		  <a class="title" href="[(#NOM_SITE_SPIP|=={#TITRE}|?{#URL_SITE_SPIP,#URL_RUBRIQUE|url_absolue})]">
-		  <h1>#TITRE</h1>
-		  <span>[(#TEXTE|textebrut)]</span>
-	  </a>
 
 
 </div>
@@ -81,9 +80,7 @@
 
 	<div class="content">
 
-		<h1>#TITRE</h1>
-		
-		<p class="center">[(#TEXTE|textebrut)]</p>
+
 
 		<BOUCLE_articles(ARTICLES){lang_select=non}{id_rubrique}{par num titre, titre}>
 		<div class="article">

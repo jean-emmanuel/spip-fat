@@ -11,10 +11,10 @@
 <B_list>
 <div>
 #ANCRE_PAGINATION
-<div class="sub-article-list" id="list#ENV{id_rubrique}">
+<div class="sub-article-list" id="liste#ENV{id_rubrique}">
 	<BOUCLE_list(ARTICLES) {lang_select=non}{id_article IN #GET{articles_tri}}{pagination #ENV{pagination,5} #ENV{id_rubrique}}>
-	<div itemprop="event" itemscope itemtype="http://schema.org/Event" class="sub-article[ (#COMPTEUR_BOUCLE|>{#GET{compteur_present}}|oui)past][ (#COMPTEUR_BOUCLE|<={#GET{compteur_present}}|oui)futur][ (#ENV{date}|affdate|=={#DATE|affdate}|oui)today][ (#COMPTEUR_BOUCLE|=={1}|oui)focus]">
-		<a class="sub-article-title" href="#" onclick="$(this).parent('div').toggleClass('focus');return false"><h3><i class="star fa fa-star"></i>&nbsp; <span itemprop="name">#TITRE</span> [(#ENV{date}|!={0}|oui)<meta itemprop="startDate" content="[(#DATE|affdate{'c'})]"/><span class="sub-article-date" title="[(#DATE|affdate_heure)]">[(#DATE|affdate)][ (#COMPTEUR_BOUCLE|<={#GET{compteur_present}}|oui)<i class="fa fa-clock-o"></i>][ (#ENV{date}|affdate|=={#DATE|affdate}|oui)<i class="fa fa-exclamation-circle"></i>]</span>]</h3></a>
+	<div itemprop="event" itemscope itemtype="http://schema.org/Event" id="article#ID_ARTICLE" class="sub-article[ (#COMPTEUR_BOUCLE|>{#GET{compteur_present}}|oui)past][ (#COMPTEUR_BOUCLE|<={#GET{compteur_present}}|oui)futur][ (#ENV{date}|affdate|=={#DATE|affdate}|oui)today]">
+		<a class="sub-article-title"  href="#article#ID_ARTICLE" onclick="$(this).parent('div').toggleClass('focus');return false"><h3><i class="star fa fa-star"></i>&nbsp; <span itemprop="name">#TITRE</span> [(#ENV{date}|!={0}|oui)<meta itemprop="startDate" content="[(#DATE|affdate{'c'})]"/><span class="sub-article-date" title="[(#DATE|affdate_heure)]">[(#DATE|affdate)][ (#COMPTEUR_BOUCLE|<={#GET{compteur_present}}|oui)<i class="fa fa-clock-o"></i>][ (#ENV{date}|affdate|=={#DATE|affdate}|oui)<i class="fa fa-exclamation-circle"></i>]</span>]</h3></a>
 		<a itemprop="url" href="#list#ENV{id_rubrique}"></a>
 		[<div itemprop="description" class="sub-article-text">
 			(#TEXTE|replace{\n,#EVAL{"chr(10)"}#EVAL{"chr(9)"}#EVAL{"chr(9)"}#EVAL{"chr(9)"}})
@@ -26,21 +26,22 @@
 	</BOUCLE_list>
 
 	<div class="sub-article-list-footer">
-		<a href="#URL_SITE_SPIP?page=backend&sr=#ENV{id_rubrique}" title="Flux RSS" class="float-left sub-rss"><i class="fa fa-rss-square"></i></a>
+		<a href="#URL_SITE_SPIP?page=backend&sr=#ENV{id_rubrique}" title="Flux RSS" class="sub-rss"><i class="fa fa-rss"></i></a>
 		<B_mots_rubrique>
 		<div class="sub-article-list-keywords">
 		<i class="fa fa-tag"></i>
-			<select onchange="window.location.href=this[this.selectedIndex].value">
-				<option value="[(#SELF|parametre_url{id_mot,''})#liste#ID_RUBRIQUE]"[ (#ENV{id_mot}|non)selected]>[ (#ENV{id_mot}|?{Tout afficher,Trier par mot-clé})]&nbsp;</option>
+			<ul>
+				[(#ENV{id_mot}|oui)<li><a href="[(#SELF|parametre_url{id_mot,''})#liste#ID_RUBRIQUE]">Tout afficher</a></li>]
 				<BOUCLE_mots_rubrique(MOTS){id_article IN #GET{articles_tri}}>
-				<option value="[(#SELF|parametre_url{debut#ENV{id_rubrique},''}|parametre_url{id_mot,#ID_MOT})#liste#ID_RUBRIQUE]"[ (#EXPOSE|oui)selected]>#TITRE</option>
+				<li><a href="[(#SELF|parametre_url{debut#ENV{id_rubrique},''}|parametre_url{id_mot,#ID_MOT})#liste#ID_RUBRIQUE]"[ (#EXPOSE|oui)class="on"]>#TITRE</a></li>
 				</BOUCLE_mots_rubrique>
-			</select>
+			</ul>
 		</div>
 		</B_mots_rubrique>
 		[<div class="sub-article-pagination">
 			(#PAGINATION{page}|replace{\n,#EVAL{"chr(10)"}#EVAL{"chr(9)"}#EVAL{"chr(9)"}#EVAL{"chr(9)"}})
 		</div>]
+		<div class="clear"></div>
 	</div>
 </div>
 </div>

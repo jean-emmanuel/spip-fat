@@ -162,8 +162,7 @@ $('.spip_image').each(function(){
 function ajaxListInit() {
 	$('.sub-article-list').each(function(){
 		var list = $(this);
-		list.find('.sub-article-keywords a, a.lien_pagination').click(function(e){e.preventDefault();ajaxList(list.attr('id'),$(this).attr('href'))});
-		list.find('select').removeAttr('onchange').change(function(e){e.preventDefault();ajaxList(list.attr('id'),this[this.selectedIndex].value)});
+		list.find('.sub-article-list-keywords a, .sub-article-keywords a, a.lien_pagination').click(function(e){e.preventDefault();ajaxList(list.attr('id'),$(this).attr('href'))});
 	});
 }
 ajaxListInit();
@@ -178,3 +177,9 @@ $(document).ajaxComplete(function(){
 });
 /*========== /ARTICLES LIST (ajax) ==========*/
 $('.bg-focus').fadeIn(700);
+if (window.location.hash.length>1) {
+  $('body, html').stop().animate({scrollTop:$(window.location.hash).offset().top},1000);
+  if ($(window.location.hash).hasClass('sub-article')) {
+    $(window.location.hash).addClass('focus');
+  }
+}
