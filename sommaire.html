@@ -18,13 +18,9 @@
 	
 	<style>
 	html, body {height:100%;margin:0;background-color:#000;}
-	.title, .links {aposition:fixed;atop:-1000px;}.title {color:rgba(255,255,255,0.9)!important;}
 	.home-container {position:relative;height:100%;width:100%;}
-	.bg-focus, .bg-blur {background-position:center;background-size:cover;background-attachment:scroll;position:fixed;height:100%;width:100%;top:0;left:0;}
+	.bg-focus {background-position:center;background-size:cover;background-attachment:scroll;position:fixed;height:100%;width:100%;top:0;left:0;}
 	[(#LOGO_RUBRIQUE|oui).bg-focus{background-image:url([(#LOGO_RUBRIQUE|image_reduire{2000}|extraire_attribut{src})])}]
-	[(#LOGO_RUBRIQUE_SURVOL|oui).bg-blur{background-image:url([(#LOGO_RUBRIQUE_SURVOL|image_reduire{2000}|extraire_attribut{src})])}@media only screen and (max-width: 440px) {.bg-focus{opacity:0!important}}]
-	[(#LOGO_RUBRIQUE_SURVOL|non).bg-blur{background-image:url([(#LOGO_RUBRIQUE|image_reduire{2000}|extraire_attribut{src})])]
-	[(#DESCRIPTIF|non).title{margin-top:-50px!important} .links{margin-top:10px!important}]
 	/* FOUC Prevention */
 	</style>
 		

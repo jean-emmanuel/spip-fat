@@ -25,7 +25,7 @@ html, body {
 	width:100%;
 }
 	/*== background ==*/
-	.bg-focus, .bg-blur {
+	.bg-focus {
 		background-position:center top;
 		background-size:cover;
 		background-attachment:scroll;
@@ -34,14 +34,10 @@ html, body {
 		width:100%;
 		top:0;
 		left:0;
-		opacity:0.7;display:none;
-	}.bg-blur{display:none;}
-	.bg-focus {
-		transition:opacity 0.4s ease;
+		opacity:0.7;
+		display:none;
 	}
-	.bg-focus.hide {
-		aopacity:0;
-	}
+
 .bg-focus:after {
     content: "";
     position: absolute;
@@ -74,7 +70,7 @@ html, body {
 		border:0;
 		outline:0;
 
-		
+		text-align:left;
 		font-weight:400;
 	}
 	.title h1 {
@@ -83,7 +79,7 @@ html, body {
 		font-variant:inherit!important;
 		font-weight:300;
 		margin:0;
-		text-align:left;
+		text-align:inherit;
 	}
 	.title ::selection {
 		color:rgba(255,255,255,0.9);
@@ -91,8 +87,8 @@ html, body {
 	.title span{
 		display:block;
 		font-size:16px;
-		line-height:34px;
-		text-align:left;
+		line-height:38px;
+		text-align:inherit;
 	}
 	
 	/*== bandcamp player ==*/
@@ -156,7 +152,7 @@ html, body {
 	}
 	.links-list {
 		list-style:none;
-		display:block;
+		display:inline-block;
 		border-radius:20px;
 		margin:0;
 		text-align:center;
@@ -230,7 +226,7 @@ html, body {
 		opacity:0.6;
 		outline:0;
 		display:block;
-		background-color:rgba(0,0,0,0.2);
+		background-color:rgba(0,0,0,0.1);
 		height:50px;
 		width:50px;
 		opacity:0.6;
@@ -819,16 +815,15 @@ iframe {
 	width:auto;
 	padding: 0 20px 20px;
 }
-.bg-focus, .bg-blur,  .player {
-	aposition:absolute;
+.player {
+  display:none;
+}
+.links, .title {
+	width:100%;padding:20px 0 0;
+	text-align:center;
 }
 
 
 
-}
-@media only screen and (max-height: 390px) {
-#knob {
-	display:none;
-}
 }
 /*========== /RESPONSIVENESS ==========*/
