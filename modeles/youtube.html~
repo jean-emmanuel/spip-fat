@@ -1,5 +1,0 @@
-<div class="youtube ui-container" id="#ENV{id}">
-	<div class="ui-element top-left normal"><i class="fa fa-cog fa-spin"></i></div>
-	<a href="#" class="play-button"><i class="fa fa-play"></i></a>
-	<div class="alt"><a href=http://www.youtube.com/watch?v=#ENV{id}">http://www.youtube.com/watch?v=#ENV{id}</a></div>
-</div>
