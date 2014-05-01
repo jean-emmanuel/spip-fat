@@ -29,7 +29,7 @@
 		<a href="#URL_SITE_SPIP?page=backend&sr=#ENV{id_rubrique}" title="Flux RSS" class="sub-rss"><i class="fa fa-rss"></i></a>
 		<B_mots_rubrique>
 		<div class="sub-article-list-keywords">
-		<i class="fa fa-tag"></i>
+		<i class="fa fa-tags"></i>
 			<ul>
 				[(#ENV{id_mot}|oui)<li><a href="[(#SELF|parametre_url{id_mot,''})#liste#ID_RUBRIQUE]">Tout afficher</a></li>]
 				<BOUCLE_mots_rubrique(MOTS){id_article IN #GET{articles_tri}}>
