@@ -60,17 +60,20 @@ html, body {
 	}
 	/*== title ==*/
 	.title {
+	  position:absolute;
+	  top:50%;
+	  margin-top:-49px;
 		color:#fff!important;
 		color:rgba(255,255,255,0.9)!important;
     float:left;
-    padding:20px 10px 0;
+
 
 		line-height:32px;
 		display:block;
 		border:0;
 		outline:0;
-
-		text-align:left;
+width:100%;
+		text-align:center;
 		font-weight:400;
 	}
 	.title h1 {
@@ -96,15 +99,18 @@ html, body {
 		z-index:3;
 		width:40px;
 		height:40px;
-    float:left;
-    margin-top:20px;margin-left:10px;
+position:absolute;
+    margin-top:20px;
+    left:50%;
+    margin-left:-22px;
+    top:50%;
 
 		abackground:url(loading2.gif) center no-repeat;
 		background-color:rgba(255,255,255,0.4);
 		opacity:0.9;
 		border:2px solid #fff;
 		
-  position:relative;
+
 		overflow:hidden;
 		border-radius:47px;
 		
@@ -124,10 +130,7 @@ html, body {
 	  font-size:14px;
 	  text-align:center;
     color:#fff;
-	  z-index:-1;
-	}
-	.player.playing:after {
-	  //content:"\f04c";
+	  z-index:-1;display:none;
 	}
 	.player iframe {
 		border: 0; 
@@ -226,7 +229,6 @@ html, body {
 		opacity:0.6;
 		outline:0;
 		display:block;
-		background-color:rgba(0,0,0,0.1);
 		height:50px;
 		width:50px;
 		opacity:0.6;
