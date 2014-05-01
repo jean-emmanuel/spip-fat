@@ -105,7 +105,6 @@ position:absolute;
     margin-left:-22px;
     top:50%;
 
-		background:url(loading2.gif) center no-repeat;
 		background-color:rgba(255,255,255,0.4);
 		opacity:0.9;
 		border:2px solid #fff;
@@ -151,7 +150,9 @@ position:absolute;
 		z-index:3;
     float:right;
     height:60px;
-     padding:20px 10px 0;
+	  width:100%;
+	  padding:20px 0 0;
+	  text-align:center;
 	}
 	.links-list {
 		list-style:none;
@@ -571,7 +572,7 @@ position:absolute;
 /*========== TYPO & GENERATED CONTENT ==========*/
 body {
 	font-family:Source Sans Pro, sans-serif;
-	font-size:13px;
+	font-size:14px;
 	line-height:20px;
 	color:#222;
 }
@@ -817,13 +818,7 @@ iframe {
 	width:auto;
 	padding: 0 20px 20px;
 }
-.player {
-  display:none;
-}
-.links, .title {
-	width:100%;padding:20px 0 0;
-	text-align:center;
-}
+
 
 
 

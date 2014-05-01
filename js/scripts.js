@@ -29,11 +29,11 @@ $(window).scroll(function(){
 });
 $('#knob').click(function(e){
 	e.preventDefault();
-	$('body, html').stop().animate({scrollTop:$('body').height()},350);
+	$('body, html').stop().animate({scrollTop:$('body').height()},1000);
 });
 $('#knob-bottom').click(function(e){
 	e.preventDefault();
-	$('body, html').stop().animate({scrollTop:0},350);
+	$('body, html').stop().animate({scrollTop:0},600);
 });
 /*========== /SCROLL ==========*/
 

@@ -62,7 +62,7 @@ html, body {
 	.title {
 	  position:absolute;
 	  top:50%;
-	  margin-top:-49px;
+	  margin-top:-59px;
 		color:#fff!important;
 		color:rgba(255,255,255,0.9)!important;
     float:left;
@@ -100,7 +100,7 @@ width:100%;
 		width:40px;
 		height:40px;
 position:absolute;
-    margin-top:20px;
+    margin-top:10px;
     left:50%;
     margin-left:-22px;
     top:50%;
@@ -150,7 +150,9 @@ position:absolute;
 		z-index:3;
     float:right;
     height:60px;
-     padding:20px 10px 0;
+	  width:100%;
+	  padding:20px 0 0;
+	  text-align:center;
 	}
 	.links-list {
 		list-style:none;
@@ -570,7 +572,7 @@ position:absolute;
 /*========== TYPO & GENERATED CONTENT ==========*/
 body {
 	font-family:Source Sans Pro, sans-serif;
-	font-size:13px;
+	font-size:14px;
 	line-height:20px;
 	color:#222;
 }
@@ -816,13 +818,7 @@ iframe {
 	width:auto;
 	padding: 0 20px 20px;
 }
-.player {
-  display:none;
-}
-.links, .title {
-	width:100%;padding:20px 0 0;
-	text-align:center;
-}
+
 
 
 
