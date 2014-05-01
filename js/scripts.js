@@ -177,4 +177,4 @@ $(document).ajaxComplete(function(){
 	ajaxListInit();
 });
 /*========== /ARTICLES LIST (ajax) ==========*/
-bg.fadeIn(700);
+$('.bg-focus').fadeIn(700);

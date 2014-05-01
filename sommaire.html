@@ -18,11 +18,13 @@
 	
 	<style>
 	html, body {height:100%;margin:0;background-color:#000;}
-	.home-container {position:relative;height:100%;width:100%;}
 	.bg-focus {background-position:center;background-size:cover;background-attachment:scroll;position:fixed;height:100%;width:100%;top:0;left:0;}
 	[(#LOGO_RUBRIQUE|oui).bg-focus{background-image:url([(#LOGO_RUBRIQUE|image_reduire{2000}|extraire_attribut{src})])}]
 	/* FOUC Prevention */
 	</style>
+	<noscript>
+	<style>	.bg-focus{display:block;}</style>
+	</noscript>
 		
 	<script type="text/javascript">
 	function downloadJSAtOnload() {
@@ -57,7 +59,7 @@
 	  <B_liens>
 	  <div class="links">
 		  <ul class="links-list">
-		    [<li>(#DESCRIPTIF|oui)<div class="player" id="player"></div></li>]
+		      [<li>(#DESCRIPTIF|oui)<div class="player" id="player"></div></li>]
 			  <BOUCLE_liens(SITES){lang_select=non}{id_rubrique}{par num nom_site, nom_site}><li><a href="#URL_SITE" title="#NOM_SITE"><i class="fa fa-[(#DESCRIPTIF|textebrut|sinon{link})]"></i><span>#NOM_SITE</span></a></li></BOUCLE_liens>
 		  </ul>
 	  </div>
