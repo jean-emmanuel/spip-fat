@@ -18,19 +18,18 @@ http://www.artlibre.org/
 /*========== SCROLL ==========*/
 if ($(window).scrollTop()!=0) {$('#bg-focus').addClass('hide');}
 var i = $('#knob i');
+var bg = $('#bg-focus');var h=$('#bg-focus').height()
+function parallax() {
+	var yPos = -($(window).scrollTop() / 6);
+	bg.css({ 'transform': 'translateY('+yPos+'px)' });
+}
+ parallax();
 $(window).scroll(function(){
-	if ($(window).scrollTop()==0) {$('#bg-focus').removeClass('hide');i.removeClass().addClass('fa fa-angle-up');}
-	else if ($(window).scrollTop()!=0) {
-		$('#bg-focus').addClass('hide');
-		if ($(window).scrollTop()>100) {i.removeClass().addClass('fa fa-angle-double-down');}
-		else if ($(window).scrollTop()<=100) {i.removeClass().addClass('fa fa-angle-double-up');}
-	}
+  parallax();
 });
 $('#knob').click(function(e){
 	e.preventDefault();
-	if (i.hasClass('fa-angle-up')) {i.removeClass('fa-angle-up').addClass('fa-angle-double-up');$('body, html').stop().animate({scrollTop:100},350);}
-	else if (i.hasClass('fa-angle-double-up')) {i.removeClass('fa-angle-double-up').addClass('fa-angle-double-down');$('body, html').stop().animate({scrollTop:$('#knob').offset().top-20},350);}
-	else if (i.hasClass('fa-angle-double-down')) {i.removeClass('fa-angle-double-down').addClass('fa-angle-up');$('body, html').stop().animate({scrollTop:0},350);};
+	$('body, html').stop().animate({scrollTop:$('body').height()},350);
 });
 $('#knob-bottom').click(function(e){
 	e.preventDefault();
@@ -39,6 +38,30 @@ $('#knob-bottom').click(function(e){
 /*========== /SCROLL ==========*/
 
 /*========== MEDIAS FRAMES ==========*/
+
+var iframeClick = function () {
+    var isOverIframe = false,
+    windowLostBlur = function () {
+        if (isOverIframe === true) {
+            isOverIframe = false;
+            $('#player').toggleClass('playing');$(window).focus();
+        }
+    };
+    $(window).focus();
+    $('#player').mouseenter(function(){
+        isOverIframe = true;
+        console.log(isOverIframe);
+    });
+    $('#player').mouseleave(function(){
+        isOverIframe = false;
+        console.log(isOverIframe);
+    });
+    $(window).blur(function () {
+        windowLostBlur();
+    });
+};
+iframeClick();
+
 $('.vimeo, .youtube, .dailymotion').each(function(){
 	var container = $(this);
 	var caption = container.find('.top-left');
@@ -154,3 +177,4 @@ $(document).ajaxComplete(function(){
 	ajaxListInit();
 });
 /*========== /ARTICLES LIST (ajax) ==========*/
+bg.fadeIn(700);

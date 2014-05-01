@@ -10,6 +10,7 @@ http://www.artlibre.org/
 * {
 	margin:0;
 	padding:0;
+	
 }
 html, body {
 	height:100%;
@@ -25,7 +26,7 @@ html, body {
 }
 	/*== background ==*/
 	.bg-focus, .bg-blur {
-		background-position:center;
+		background-position:center top;
 		background-size:cover;
 		background-attachment:scroll;
 		position:fixed;
@@ -33,97 +34,130 @@ html, body {
 		width:100%;
 		top:0;
 		left:0;
-	}
+		opacity:0.7;display:none;
+	}.bg-blur{display:none;}
 	.bg-focus {
 		transition:opacity 0.4s ease;
 	}
 	.bg-focus.hide {
-		opacity:0;
+		aopacity:0;
 	}
+.bg-focus:after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: url('overlay.png') repeat scroll 0% 0% transparent;
+}
 	
+	
+	
+	.top {
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	height:80px;
+	padding:0 10px;
+	}
 	/*== title ==*/
 	.title {
 		color:#fff!important;
 		color:rgba(255,255,255,0.9)!important;
-		z-index:3;
-		width:300px;
-		padding:0 10px;
-		text-align:center;
-		margin-top:-160px;
-		margin-left:-160px;
-		position:fixed;
-		top:50%;
-		left:50%;
-		font-variant:small-caps;
-		line-height:18px;
-		text-shadow:0 0 2px #000;
+    float:left;
+    padding:20px 10px 0;
+
+		line-height:32px;
 		display:block;
 		border:0;
 		outline:0;
+
+		
+		font-weight:400;
 	}
 	.title h1 {
-		font-size:18px;
+		font-size:34px;
+		line-height:20px;
+		font-variant:inherit!important;
+		font-weight:300;
 		margin:0;
+		text-align:left;
 	}
 	.title ::selection {
 		color:rgba(255,255,255,0.9);
 	}
 	.title span{
 		display:block;
-		font-size:13px;
+		font-size:16px;
+		line-height:34px;
+		text-align:left;
 	}
 	
 	/*== bandcamp player ==*/
 	.player {
 		z-index:3;
-		width:200px;
-		height:200px;
-		padding:10px;
-		position:fixed;
-		top:50%;
-		left:50%;
-		margin:-110px;
-		margin-left:-110px;
-		background:url(loading2.gif) center no-repeat;
-		background-color:#fff;
+		width:40px;
+		height:40px;
+    float:left;
+    margin-top:20px;margin-left:10px;
+
+		abackground:url(loading2.gif) center no-repeat;
+		background-color:rgba(255,255,255,0.4);
 		opacity:0.9;
-		border-radius:110px;
-		-webkit-border-radius:110px;
-		-moz-border-radius:110px;
-		overflow:hidden;	
-		box-shadow:0 0 10px 0 #000;
+		border:2px solid #fff;
+		
+  position:relative;
+		overflow:hidden;
+		border-radius:47px;
+		
+		opacity:0.6;
+		transition:opacity 0.3s;
+	}
+	.player:hover {
+	  opacity:0.9;
+	}
+	.player:after {
+	  content:"\f001";
+	  font-family:FontAwesome;
+	  position:absolute;
+	  width:40px;
+	  height:100%;
+	  line-height:40px;
+	  font-size:14px;
+	  text-align:center;
+    color:#fff;
+	  z-index:-1;
+	}
+	.player.playing:after {
+	  //content:"\f04c";
 	}
 	.player iframe {
 		border: 0; 
 		margin:0;
 		padding:0;
 		position:absolute;
-		display:block;
+		display:block;top:-77px;
+		left:-76px;opacity:0;
 		background-color:transparent;
 		width:200px;
 		height:200px;
+
 	}	
 
 	
 	/*== links list ==*/
 	.links {
 		z-index:3;
-		width:300px;
-		padding:0 10px;
-		text-align:center;
-		margin-top:130px;
-		margin-left:-160px;
-		position:fixed;
-		top:50%;
-		left:50%;
+    float:right;
+    height:60px;
+     padding:20px 10px 0;
 	}
 	.links-list {
 		list-style:none;
-		display:inline-block;
-		background:#fff;
-		background:rgba(255,255,255,0.9);
+		display:block;
 		border-radius:20px;
-		box-shadow:0 0 10px 0 #000;
 		margin:0;
 		text-align:center;
 	}
@@ -131,11 +165,23 @@ html, body {
 		padding:0;
 		display:block;
 		float:left;
-		width:20px;
-		padding:5px;
+
 		outline:0;
-		border-right:1px solid #ccc;
-		border-left:1px solid #fff;
+		background:rgba(255,255,255,0.4);
+		border:2px solid #fff;
+		opacity:0.6;
+		margin:0 10px;
+		
+		text-align:center;
+		font-size:20px;
+		width:40px;
+		height:40px;
+		line-height:40px;
+		border-radius:40px;
+		transition:opacity 0.3s;
+	}
+	.links li:hover {
+		opacity:0.9;
 	}
 	.links li:before {
 		display:none;
@@ -144,21 +190,12 @@ html, body {
 		border:0;
 		display:block;
 		outline:0;
+		color:#fff!important;
 	}
 	.links a span {
 		display:none;
 	}
-	.links li:first-child {
-		border-left:0;
-		padding-left:7px;
-	}
-	.links li:last-child {
-		border-right:0;
-		padding-right:7px;
-	}
-	.links li:last-child:first-child {
-		padding:5px;
-	}
+
 	i.fa-bandcamp:before {
 		content:"\f04d";
 	}
@@ -169,64 +206,67 @@ html, body {
 	
 	/*== scroll-knobs (knob-bottom in .content div ==*/
 	#knob {
-		width:10px;
-		padding:2px 7px;
-		height:20px;
 		position:absolute;
-		top:-40px;
+		top:-67px;
 		left:50%;
-		margin-left:-12px;
+		margin-left:-27px;
+	  color:#fff;
+		height:50px;
+		width:50px;
+		opacity:0.6;
+		border-radius:27px;
+		background-color:rgba(255,255,255,0.2);
+		border:2px solid #fff;
+		outline:0;
+		transition:opacity 0.3s;
+	}
+
+	#knob-bottom {
+		margin:0 auto;
 		border:0;
 		text-align:center;
-		background:#fff;
-		opacity:0.9;
+		color:#000;
 		border-radius:12px;
+		opacity:0.6;
 		outline:0;
-		box-shadow:0 0 10px 0 #000;
-		font-size:14px;
-		animation: knob 1.8s ease 3;
+		display:block;
+		background-color:rgba(0,0,0,0.1);
+		height:50px;
+		width:50px;
+		opacity:0.6;
+		border-radius:27px;
+		border:2px solid #000;
+		outline:0;
+		transition:opacity 0.3s;
+		
 	}
-	#knob:hover {
-		transition:box-shadow 0.2s;
-		box-shadow:0 0 3px 0 #fff;
-	}
-	@keyframes knob
-	{
-	from   {box-shadow:0 0 10px 0 #000}
-	50%   {box-shadow:0 0 3px 0 #fff}
-	100%   {box-shadow:0 0 10px 0 #000}
+	#knob:hover, #knob-bottom:hover {
+		opacity:0.9;
 	}
 	#knob i, #knob-bottom i {
 		vertical-align:middle;
-		line-height:20px;
-		width: 10px;
-		height: 20px;
-		font-size:12px;
-	}
-	#knob-bottom {
-		width:10px;
-		padding:2px 7px;
-		height:20px;
-		margin:20px auto 0;
-		border:0;
+		width: 50px;
+		height: 50px;
+		font-size:30px;
 		text-align:center;
-		background:#333;
-		color:#fff;
-		border-radius:12px;
-		opacity:0.8;
-		outline:0;
-		display:block;
+		text-shadow: 0 0 1px #000;
 	}
+  #knob i {
+    line-height:50px;
+  }
+  #knob-bottom i {
+    line-height:45px;
+  }
+	
 /*========== /HOME PAGE ==========*/
 
 /*========== CONTENT PAGE ==========*/
 .content-container {
 	z-index:4;
-	border-top:1px solid #333;
-	background:#fff;
-	background:rgba(255,255,255,0.9);
+	padding-top:1px;
+	background:#fafafa;
+	abackground:rgba(255,255,255,0.95);
 	position:relative;
-	box-shadow:0 0 10px 0 #000;
 }
 .content {
 	margin:0 auto;
@@ -235,6 +275,11 @@ html, body {
 	padding:0 10px 20px;
 	hyphens: auto;
 	-moz-hyphens: auto;/* prefixfree.js is too slow for this one;*/
+}
+.bottom {
+  background:#fafafa;
+  padding:20px 0;
+  position:relative;
 }
 /*========== /CONTENT PAGE ==========*/
 
@@ -527,7 +572,7 @@ html, body {
 
 /*========== TYPO & GENERATED CONTENT ==========*/
 body {
-	font-family:sans-serif;
+	font-family:Source Sans Pro, sans-serif;
 	font-size:13px;
 	line-height:20px;
 	color:#222;
@@ -628,7 +673,7 @@ a {
 	color:#333;
 	transition:color 0.2s;
 }
-a:hover, #knob-bottom:hover  {
+a:hover {
 	color:#ff3333;
 }
 
@@ -765,7 +810,6 @@ iframe {
 	display:block;
 }
 
-
 /*========== /TYPO & GENERATED CONTENT ==========*/
 
 /*========== RESPONSIVENESS ==========*/
@@ -773,15 +817,12 @@ iframe {
 
 .content {
 	width:auto;
-	padding: 0 20px 10px;
+	padding: 0 20px 20px;
 }
-.bg-focus, .bg-blur, .title, .player, .links {
-	position:absolute;
+.bg-focus, .bg-blur,  .player {
+	aposition:absolute;
 }
-.player {
-background:rgba(255,255,255,0.9);
-opacity:1;
-}
+
 
 
 }

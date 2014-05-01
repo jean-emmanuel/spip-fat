@@ -18,12 +18,12 @@
 	
 	<style>
 	html, body {height:100%;margin:0;background-color:#000;}
-	.title, .links {position:fixed;top:-1000px;}.title {color:rgba(255,255,255,0.9)!important;}
+	.title, .links {aposition:fixed;atop:-1000px;}.title {color:rgba(255,255,255,0.9)!important;}
 	.home-container {position:relative;height:100%;width:100%;}
 	.bg-focus, .bg-blur {background-position:center;background-size:cover;background-attachment:scroll;position:fixed;height:100%;width:100%;top:0;left:0;}
 	[(#LOGO_RUBRIQUE|oui).bg-focus{background-image:url([(#LOGO_RUBRIQUE|image_reduire{2000}|extraire_attribut{src})])}]
 	[(#LOGO_RUBRIQUE_SURVOL|oui).bg-blur{background-image:url([(#LOGO_RUBRIQUE_SURVOL|image_reduire{2000}|extraire_attribut{src})])}@media only screen and (max-width: 440px) {.bg-focus{opacity:0!important}}]
-	[(#LOGO_RUBRIQUE_SURVOL|non).bg-focus{opacity:1!important}]
+	[(#LOGO_RUBRIQUE_SURVOL|non).bg-blur{background-image:url([(#LOGO_RUBRIQUE|image_reduire{2000}|extraire_attribut{src})])]
 	[(#DESCRIPTIF|non).title{margin-top:-50px!important} .links{margin-top:10px!important}]
 	/* FOUC Prevention */
 	</style>
@@ -54,26 +54,32 @@
 	<div class="bg-blur"></div>
 	<div class="bg-focus" id="bg-focus"></div>
 
-	<a class="title" href="[(#NOM_SITE_SPIP|=={#TITRE}|?{#URL_SITE_SPIP,#URL_RUBRIQUE|url_absolue})]">
-		<h1>#TITRE</h1>
-		<span>[(#TEXTE|textebrut)]</span>
-	</a>
+  <div class="top">
+    [(#DESCRIPTIF|oui)<div class="player" id="player"></div>]
+  
+	  <a class="title" href="[(#NOM_SITE_SPIP|=={#TITRE}|?{#URL_SITE_SPIP,#URL_RUBRIQUE|url_absolue})]">
+		  <h1>#TITRE</h1>
+		  <span>[(#TEXTE|textebrut)]</span>
+	  </a>
+	
+	  <B_liens>
+	  <div class="links">
+		  <ul class="links-list">
+			  <BOUCLE_liens(SITES){lang_select=non}{id_rubrique}{par num nom_site, nom_site}><li><a href="#URL_SITE" title="#NOM_SITE"><i class="fa fa-[(#DESCRIPTIF|textebrut|sinon{link})]"></i><span>#NOM_SITE</span></a></li></BOUCLE_liens>
+		  </ul>
+	  </div>
+	  </B_liens>
+	  </div>
 
-	[(#DESCRIPTIF|oui)<div class="player" id="player"></div>]
-	<B_liens>
-	<div class="links">
-		<ul class="links-list">
-			<BOUCLE_liens(SITES){lang_select=non}{id_rubrique}{par num nom_site, nom_site}><li><a href="#URL_SITE" title="#NOM_SITE"><i class="fa fa-[(#DESCRIPTIF|textebrut|sinon{link})]"></i><span>#NOM_SITE</span></a></li></BOUCLE_liens>
-		</ul>
-	</div>
-	</B_liens>
+	
+
 
 </div>
 
 <B_articles>
 <div class="content-container">
 
-	<a href="#" id="knob"><i class="fa fa-angle-up"></i></a>
+	<a href="#" id="knob"><i class="fa fa-angle-down"></i></a>
 
 	<div class="content">
 
@@ -94,14 +100,16 @@
 		</div>
 		
 		</BOUCLE_articles>
-		<a href="#" id="knob-bottom"><i class="fa fa-angle-double-down"></i></a>
+		
 		<div id="layer"></div>
 	</div>
-	
-</div>
+
+</div>	
+<div class="bottom"><a href="#" id="knob-bottom"><i class="fa fa-angle-up"></i></a></div>
 </B_articles>
 	<link href="[(#CHEMIN{css/font-awesome.min.css}|url_absolue)]" rel="stylesheet" media="screen" type="text/css"/>
 	<link href="[(#CHEMIN{css/idangerous.swiper.css}|url_absolue)]" rel="stylesheet" media="screen" type="text/css"/>
 	<link href="[(#CHEMIN{css/style.css}|url_absolue)]" rel="stylesheet" media="screen" type="text/css"/>
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet" type="text/css" />
 </body>
 </html></BOUCLE_rubrique>
