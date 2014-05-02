@@ -640,7 +640,7 @@ h2 {
 }
 h3 {
 	font-size:16px;
-	font-weight:bold;
+	font-weight:600;
 	margin:25px 0px -5px;
 }
 hr {
@@ -700,7 +700,7 @@ a {
   transition: all 0.2s ease-in-out 0s;
 }
 a.on {
-  font-weight:bold;
+  font-weight:600;
 }
 .align-center, .center {
 	text-align:center;
