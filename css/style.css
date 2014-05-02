@@ -386,6 +386,20 @@ html, body {
 	outline:0;
 	
 }
+.sub-article-title {
+  float:left;
+}
+.previous-article {
+	height:80px;
+	line-height:80px;
+	padding-left:10px;
+	float:right;
+	display:none;
+	outline:0;
+}
+.sub-article.focus .previous-article {
+  display:block;
+}
 .sub-article h3 {
 	margin:0px 0 0;
 	height:80px;

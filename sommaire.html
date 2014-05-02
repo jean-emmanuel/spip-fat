@@ -42,7 +42,7 @@
 </head>
 <body>
 
-<div class="home-container">
+<div class="home-container" id="home">
 
 	<div class="bg-focus" id="bg-focus"></div>
  [(#DESCRIPTIF|oui)<div class="player" id="player"></div>]
@@ -70,9 +70,9 @@
 </div>
 
 <B_articles>
-<div class="content-container">
+<div class="content-container" id="content">
 
-	<a href="#" id="knob"><i class="fa fa-angle-down"></i></a>
+	<a href="#content" id="knob"><i class="fa fa-angle-down"></i></a>
 
 	<div class="content">
 
@@ -96,7 +96,7 @@
 	</div>
 
 </div>	
-<div class="bottom"><a href="#" id="knob-bottom"><i class="fa fa-angle-up"></i></a></div>
+<div class="bottom"><a href="#home" id="knob-bottom"><i class="fa fa-angle-up"></i></a></div>
 </B_articles>
 	<link href="[(#CHEMIN{css/font-awesome.min.css}|url_absolue)]" rel="stylesheet" media="screen" type="text/css"/>
 	<link href="[(#CHEMIN{css/idangerous.swiper.css}|url_absolue)]" rel="stylesheet" media="screen" type="text/css"/>
