@@ -432,9 +432,10 @@ html, body {
 }
 .sub-article-list-footer {
 	border-top:1px solid #fff;
+	text-align:center;
 }
 .sub-article-pagination {
-	float:right;
+	display:inline-block;
 	line-height:19px;
 }
 .sub-article-pagination .sep {
@@ -442,7 +443,7 @@ html, body {
 }
 .sub-article-pagination strong, .sub-article-pagination a {
 		border:2px solid #333;
-		margin:20px 0 0 20px;
+		margin:20px 10px 0;
 		text-align:center;
 		font-size:16px;
 		width:34px;
@@ -457,28 +458,26 @@ html, body {
 }
 .sub-rss {
 		border:2px solid #333;
-		margin:20px 20px 0 0;
+		margin:20px 10px 0;
 		text-align:center;
 		font-size:16px;
 		width:34px;
 		height:34px;
 		line-height:30px;
 		border-radius:34px;
-		display:block;
-		float:left;
+		display:inline-block;
 		outline:0;
 }
 .sub-article-list-keywords {
 		border:2px solid #333;
-		margin:20px 20px 0 0;
+		margin:20px 10px 0;
 		text-align:center;
 		font-size:16px;
 		width:34px;
 		height:34px;
 		line-height:30px;
 		border-radius:34px;
-		display:block;
-		float:left;
+		display:inline-block;
 		outline:0;
 	  cursor:pointer;
 	  transition: all 0.3s;
