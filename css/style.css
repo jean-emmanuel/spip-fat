@@ -690,13 +690,13 @@ ol > li:before {
     display:inline-block;
 }
 
-.spip_in, .spip_out, .spip_mail {
+.spip_in, .spip_out, .spip_mail, .spip_document {
   transition: all 0.2s ease-in-out 0s;
   color:inherit;
   text-decoration: none;
   border-bottom: 1px dotted;
 }
-.spip_in:hover, .spip_out:hover, .spip_mail:hover {
+.spip_in:hover, .spip_out:hover, .spip_mail:hover, .spip_document:hover {
 	border-color: transparent;
 }
 a {
@@ -780,17 +780,12 @@ blockquote:before {
 	opacity:0.5;
 	font-style:normal;
 }
-.spip_document:before {
-	content:"\f15b";
-	font-family:'FontAwesome';
-	margin-right:3px;
-	font-weight:normal;
-}
 .spip_size {
-	font-size: 8px;
+	font-size: 9px;
 	line-height: 8px;
 	vertical-align: middle;
 	display: inline-block;
+	margin-top:-2px;
 }
 .spip_size span {
 	display:table-row;
