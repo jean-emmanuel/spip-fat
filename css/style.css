@@ -360,8 +360,10 @@ html, body {
 	opacity:1;
 }
 .sub-article-list.loading {
-	opacity:0.5;
 	background:url(loading2.gif) center no-repeat;
+}
+.sub-article-list.loading * {
+	opacity:0.8;
 }
 .sub-article {
 	border-top:1px solid #fff;
@@ -478,9 +480,9 @@ html, body {
 		display:block;
 		float:left;
 		outline:0;
-	cursor:pointer;
-	transition: all 0.3s;
-	position:relative;
+	  cursor:pointer;
+	  transition: all 0.3s;
+	  position:relative;
 }
 .sub-article-list-keywords i {
 	width:32px;
@@ -512,6 +514,7 @@ html, body {
 }
 .sub-article-list-keywords a {
   font-weight:400;
+  outline:0;
 }
 .sub-article-list-keywords:hover ul {
   display:block;
