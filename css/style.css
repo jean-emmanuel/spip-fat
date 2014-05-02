@@ -201,7 +201,8 @@ html, body {
 		height:54px;
 		width:54px;
 		border-radius:27px;
-		border:2px solid;
+		border:2px solid #555;
+		color:#555;
 		outline:0;
 		transition:all 0.3s;
 		
@@ -256,8 +257,8 @@ html, body {
 }
 .article:before {
 	border:0;
-  border-bottom: 1px solid #aaa;
-  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #999;
+  border-top: 1px solid #999;
 	height:5px;
 	display:block;
 	content:"";
