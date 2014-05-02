@@ -206,3 +206,8 @@ function anchors() {
 $('.bg-focus').fadeIn(700);
 anchors();
 
+if ($('.syntax').length) {
+  $.getScript(SyntaxRoot + "jquery.syntax.min.js", function () {
+  $.syntax({root: SyntaxRoot, inlineLayout: "fixed",theme: "paper"});
+  });
+}

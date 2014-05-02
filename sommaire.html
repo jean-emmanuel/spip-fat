@@ -21,7 +21,6 @@
 	<noscript>
 	<style>	.bg-focus{display:block;}</style>
 	</noscript>
-		
 	<script type="text/javascript">
 	function downloadJSAtOnload() {
 		var script1 = document.createElement("script");
@@ -33,6 +32,9 @@
 	
 		document.body.appendChild(script1);
 		[(#DESCRIPTIF|oui)document.getElementById("player").appendChild(player);]
+	  
+		SyntaxRoot = "[(#CHEMIN{js/syntax/jquery.syntax.min.js}|dirname)]/";
+
 	}
 	if (window.addEventListener) window.addEventListener("load", downloadJSAtOnload, false);
 	else if (window.attachEvent) window.attachEvent("onload", downloadJSAtOnload);
@@ -83,7 +85,7 @@
 		
 			<h2>#TITRE</h2>
 
-			[(#TEXTE|replace{\n,#EVAL{"chr(10)"}#EVAL{"chr(9)"}#EVAL{"chr(9)"}#EVAL{"chr(9)"}})]
+			[(#TEXTE)]
 
 			[<div class="footnotes">(#NOTES)</div>]
 			
