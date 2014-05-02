@@ -370,11 +370,13 @@ html, body {
 	max-height:80px;
 	overflow:hidden;
 }
-.sub-article.past {
-	abackground: radial-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0));
+
+
+.sub-article.past .sub-article-date {
+  color:#555;
 }
-.sub-article.today {
-	abackground: radial-gradient(rgba(255,255,0,0.2), rgba(0,0,0,0));
+.sub-article.today .sub-article-date, .sub-article.futur .sub-article-date {
+	color:#298;
 }
 
 .sub-article:first-child {
@@ -385,7 +387,13 @@ html, body {
 	
 }
 .sub-article h3 {
-	margin:0px 0 0;height:80px;line-height:80px;
+	margin:0px 0 0;
+	height:80px;
+	line-height:80px;
+	position:relative;
+	overflow:hidden;
+	text-align: left;
+  word-break: break-all;
 }
 .sub-article.focus  {
 	max-height:10000px;
@@ -393,10 +401,11 @@ html, body {
 .sub-article.focus  h3 i.star:before{
 	content:"\f006";
 }
-
 .sub-article-date {
-	float:right;
-	font-weight:400;
+  font-weight:400;
+  float:none;
+  display:block;
+  position:absolute;top:20px;left:24px;
 }
 .sub-article-list-footer {
 	border-top:1px solid #fff;
@@ -783,7 +792,6 @@ blockquote:before {
 iframe {
 	display:block;
 }
-
 /*========== /TYPO & GENERATED CONTENT ==========*/
 
 /*========== RESPONSIVENESS ==========*/
@@ -798,8 +806,4 @@ iframe {
 	width:auto;
 }
 
-
-
-
-}
 /*========== /RESPONSIVENESS ==========*/
