@@ -184,9 +184,8 @@ $(document).ajaxComplete(function(){
 /*========== /ARTICLES LIST (ajax) ==========*/
 
 function anchors() {
-  $('a[href^=#]').click(function(e){
-    var id = $(this).attr('href')
-    
+  $('a[href*=#]').click(function(e){
+    var id = '#'+$(this).attr('href').split("#")[1]
     if ($(id).hasClass('sub-article')) {
       $('.sub-article').not($(id)).removeClass('focus');
     }

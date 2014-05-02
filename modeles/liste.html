@@ -9,8 +9,8 @@
 </BOUCLE_date_tri_passe>
 
 <B_list>
-<div>
 #ANCRE_PAGINATION
+<div>
 <div class="sub-article-list" id="liste#ENV{id_rubrique}">
 	<BOUCLE_list(ARTICLES) {lang_select=non}{id_article IN #GET{articles_tri}}{pagination #ENV{pagination,5} #ENV{id_rubrique}}>
 	<div itemprop="event" itemscope itemtype="http://schema.org/Event" id="article#ID_ARTICLE" class="sub-article[ (#COMPTEUR_BOUCLE|>{#GET{compteur_present}}|oui)past][ (#COMPTEUR_BOUCLE|<={#GET{compteur_present}}|oui)futur][ (#ENV{date}|affdate|=={#DATE|affdate}|oui)today]">
