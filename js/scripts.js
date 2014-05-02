@@ -83,12 +83,12 @@ function mediaFrames(){
 	  });
 	  }
 	
-	  container.find('.play-button').click(function(e){
+	  container.find('.center-center').click(function(e){
 		  e.preventDefault();
 		  $(this).find('i').removeClass('fa-play').addClass('fa-cog fa-spin');
 		  caption.hide();
 		  container[0].appendChild(frame);
-		  container.find('iframe').load(function(){container.find('.play-button').hide();});
+		  container.find('iframe').load(function(){container.find('.center-center').hide();});
 	  });
   });
   $('.bandcamp').each(function(){

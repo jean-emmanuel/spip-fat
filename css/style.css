@@ -292,25 +292,6 @@ html, body {
 	height:120px;
 	border:0;
 }
-.play-button {
-    width: 40px;
-    height: 40px;
-    color: #eee;
-    font-size: 16px;
-    position: absolute;
-	border:0;
-	outline:0;
-    text-align: center;
-    left: 50%;
-    top: 50%;
-    margin-top: -20px;
-    margin-left: -20px;
-    display: block;
-    line-height: 40px;
-	background:#222;
-	opacity:0.8;
-	border-radius:5px;
-}
 /*========== /MEDIAS FRAMES ==========*/
 
 
@@ -574,53 +555,63 @@ html, body {
 }
 .ui-element{
 	font-size:18px;
-	line-height:30px;
-	min-height:30px;
+	line-height:20px;
+	min-height:20px;
 	border:0;
 	outline:0;
 	color:#fff;
 	opacity:0.8;
 	background:#222;
-	padding: 5px;
+	padding: 15px;
 	z-index:100;
 	display:block;
 	position:absolute;
 	text-align:center;
 }
 
+.center-center {
+    width:50px;
+    height:50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -25px;
+    margin-left: -25px;
+	  border-radius:25px;
+}
 .center-left, .center-right {
 	position:absolute;
 	top:50%;
-	margin-top:-15px;
+	margin-top:-20px;
 }
 .center-left {
 	left:0;
-	border-top-right-radius:5px;
-	border-bottom-right-radius:5px;
+	border-top-right-radius:25px;
+	border-bottom-right-radius:25px;
 }
 .center-right {
 	right:0;
-	border-top-left-radius:5px;
-	border-bottom-left-radius:5px;
+	border-top-left-radius:25px;
+	border-bottom-left-radius:25px;
 }
 .bottom-left {
 	bottom:0;
 	left:0;
-	border-top-right-radius:5px;
+	border-top-right-radius:25px;
 }
 .bottom-right {
 	bottom:0;
 	right:0;
-	border-top-left-radius:5px;
+	border-top-left-radius:25px;
 }
 .top-right {
 	top:0;
 	right:0;
-	border-bottom-left-radius:5px;
+	border-bottom-left-radius:25px;
 }
 .top-left {
 	top:0;
-	border-bottom-right-radius:5px;
+	border-bottom-right-radius:25px;
 }
 .ui-container .alt {
 	display:none;
