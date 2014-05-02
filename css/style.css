@@ -393,7 +393,8 @@ html, body {
 	position:relative;
 	overflow:hidden;
 	text-align: left;
-  word-break: break-all;
+  white-space:nowrap;
+  text-overflow:ellipsis;
 }
 .sub-article-text {
 
