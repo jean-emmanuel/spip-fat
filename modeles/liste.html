@@ -9,7 +9,7 @@
 </BOUCLE_date_tri_passe>
 
 <B_list>
-#ANCRE_PAGINATION
+[<div class="pagination-anchor">(#ANCRE_PAGINATION)</div>]
 <div>
 <div class="sub-article-list" id="liste#ENV{id_rubrique}">
 	<BOUCLE_list(ARTICLES) {lang_select=non}{id_article IN #GET{articles_tri}}{pagination #ENV{pagination,5} #ENV{id_rubrique}}>
