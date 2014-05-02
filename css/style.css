@@ -439,8 +439,14 @@ html, body {
 	border-top:1px solid #fff;
 	text-align:center;
 }
+.pagination-anchor {
+  position:relative;
+}
 .pagination-anchor a {
-  display:block
+  display: block;
+  position: absolute;
+  bottom: -22px;
+  height: 1px;
 }
 .sub-article-pagination {
 	display:inline-block;
