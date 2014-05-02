@@ -87,7 +87,7 @@ html, body {
 	
 	
 	/*== title & links ==*/
-	.top {
+	.header {
 	  position:absolute;
 	  bottom:50%;
 	  margin-bottom:-50px;
