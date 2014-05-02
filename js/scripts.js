@@ -159,6 +159,11 @@ $('.spip_image').each(function(){
 /*========== /IMG ==========*/
 
 /*========== ARTICLES LIST (ajax) ==========*/
+if (window.location.hash.length>1) {
+  if ($(window.location.hash).hasClass('sub-article')) {
+    $(window.location.hash).addClass('focus');
+  }
+}
 function ajaxListInit() {
 	$('.sub-article-list').each(function(){
 		var list = $(this);
@@ -177,9 +182,3 @@ $(document).ajaxComplete(function(){
 });
 /*========== /ARTICLES LIST (ajax) ==========*/
 $('.bg-focus').fadeIn(700);
-if (window.location.hash.length>1) {
-  $('body, html').stop().animate({scrollTop:$(window.location.hash).offset().top},1000);
-  if ($(window.location.hash).hasClass('sub-article')) {
-    $(window.location.hash).addClass('focus');
-  }
-}

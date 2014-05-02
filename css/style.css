@@ -395,6 +395,12 @@ html, body {
 	text-align: left;
   word-break: break-all;
 }
+.sub-article-text {
+
+}
+.sub-article.focus .sub-article-text {
+
+}
 .sub-article.focus  {
 	max-height:10000px;
 }
