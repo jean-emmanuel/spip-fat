@@ -421,14 +421,17 @@ html, body {
 .sub-article.focus  {
 	max-height:10000px;
 }
+.sub-article  h3 i.star {
+ a color:#555;
+}
 .sub-article.focus  h3 i.star:before{
-	content:"\f006";
+	content:"\f192";
 }
 .sub-article-date {
   font-weight:400;
   float:none;
   display:block;
-  position:absolute;top:20px;left:24px;
+  position:absolute;top:20px;
 }
 .sub-article-list-footer {
 	border-top:1px solid #fff;
