@@ -14,13 +14,13 @@
 <div class="sub-article-list" id="liste#ENV{id_rubrique}">
 	<BOUCLE_list(ARTICLES) {lang_select=non}{id_article IN #GET{articles_tri}}{pagination #ENV{pagination,5} #ENV{id_rubrique}}>
 	<div itemprop="event" itemscope itemtype="http://schema.org/Event" id="article#ID_ARTICLE" class="sub-article[ (#COMPTEUR_BOUCLE|>{#GET{compteur_present}}|oui)past][ (#COMPTEUR_BOUCLE|<={#GET{compteur_present}}|oui)futur][ (#ENV{date}|affdate|=={#DATE|affdate}|oui)today]">
-		<a class="sub-article-title"  href="#article#ID_ARTICLE" onclick="$(this).parent('div').toggleClass('focus');return false"><h3><i class="star fa fa-star"></i>&nbsp; <span itemprop="name">#TITRE</span> [(#ENV{date}|!={0}|oui)<meta itemprop="startDate" content="[(#DATE|affdate{'c'})]"/><span class="sub-article-date" title="[(#DATE|affdate_heure)]">[(#DATE|affdate)][ (#COMPTEUR_BOUCLE|<={#GET{compteur_present}}|oui)<i class="fa fa-clock-o"></i>][ (#ENV{date}|affdate|=={#DATE|affdate}|oui)<i class="fa fa-exclamation-circle"></i>]</span>]</h3></a>
+		<a class="sub-article-title"  href="#article#ID_ARTICLE" onclick="$('.sub-article').not($(this).parent('div')).removeClass('focus');$(this).parent('div').toggleClass('focus');return false"><h3><i class="star fa fa-star"></i>&nbsp; <span itemprop="name">#TITRE</span> [(#ENV{date}|!={0}|oui)<meta itemprop="startDate" content="[(#DATE|affdate{'c'})]"/><span class="sub-article-date" title="[(#DATE|affdate_heure)]">[(#DATE|affdate)][ (#COMPTEUR_BOUCLE|<={#GET{compteur_present}}|oui)<i class="fa fa-clock-o"></i>][ (#ENV{date}|affdate|=={#DATE|affdate}|oui)<i class="fa fa-exclamation-circle"></i>]</span>]</h3></a>
 		<a itemprop="url" href="#list#ENV{id_rubrique}"></a>
 		[<div itemprop="description" class="sub-article-text">
 			(#TEXTE|replace{\n,#EVAL{"chr(10)"}#EVAL{"chr(9)"}#EVAL{"chr(9)"}#EVAL{"chr(9)"}})
 		</div>]
 		<B_mots><div class="sub-article-keywords">
-			<i class="fa fa-tags"></i>&nbsp;<BOUCLE_mots(MOTS){id_article}{", "}><a href="[(#SELF|parametre_url{id_mot,#ID_MOT})#liste#ID_RUBRIQUE]">#TITRE</a></BOUCLE_mots>
+			<i class="fa fa-tags"></i>&nbsp;<BOUCLE_mots(MOTS){id_article}{", "}><a class="spip_in" href="[(#SELF|parametre_url{id_mot,#ID_MOT})#liste#ID_RUBRIQUE]">#TITRE</a></BOUCLE_mots>
 		</div></B_mots>
 	</div>
 	</BOUCLE_list>
