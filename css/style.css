@@ -209,6 +209,9 @@ html, body {
 	#knob:hover {
 		opacity:0.9;
 	}
+	#knob-bottom:hover {
+		background-color:#eee;
+	}
 	#knob i, #knob-bottom i {
 		vertical-align:middle;
 		width: 50px;
@@ -550,8 +553,9 @@ html, body {
   top:-8px;
   border-bottom:10px solid #fafafa;
 }
-
-	
+.sub-rss:hover, .sub-article-list-keywords:hover,  .sub-article-pagination a:hover {
+  background-color:#eee;
+}
 /*========== GUI ==========*/
 .ui-container {
 	position:relative;
@@ -826,6 +830,27 @@ blockquote:before {
 }
 iframe {
 	display:block;
+}
+.biglink {
+  text-align:center;
+  margin-top:20px;
+}
+.biglink a {
+	padding:0;
+	display:inline-block;
+	background:transparent;
+	border:2px solid #555;
+	color:#555;
+	text-align:center;
+	padding:0 20px;
+	height:44px;
+	line-height:40px;
+	border-radius:20px;
+	transition:background-color 0.3s;
+	outline:0;
+}
+.biglink a:hover {
+  background-color:#eee;
 }
 /*========== /TYPO & GENERATED CONTENT ==========*/
 
