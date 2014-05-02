@@ -192,7 +192,7 @@ function anchors() {
     
     if (!($(id).hasClass('focus'))) {
       var y = $(id).offset().top
-      var s = Math.min(800,Math.abs(800 / ($('.bg-focus').height()/(y-$(window).scrollTop()))))
+      var s = Math.min(800,Math.max(100,Math.abs(800 / ($('.bg-focus').height()/(y-$(window).scrollTop())))))
       $("body,html").stop().animate({scrollTop:y},s,"swing");
     }
     

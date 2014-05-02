@@ -15,7 +15,7 @@
 	<BOUCLE_list(ARTICLES) {lang_select=non}{id_article IN #GET{articles_tri}}{pagination #ENV{pagination,5} #ENV{id_rubrique}}>
 	<div itemprop="event" itemscope itemtype="http://schema.org/Event" id="article#ID_ARTICLE" class="sub-article[ (#COMPTEUR_BOUCLE|>{#GET{compteur_present}}|oui)past][ (#COMPTEUR_BOUCLE|<={#GET{compteur_present}}|oui)futur][ (#ENV{date}|affdate|=={#DATE|affdate}|oui)today]">
 		[<a href="#article(#GET{id_prev})" class="float-right previous-article"><i class="fa fa-arrow-up"></i></a>]#SET{id_prev,#ID_ARTICLE}
-		<a class="sub-article-title"  href="#article#ID_ARTICLE"><h3><i class="star fa fa-circle-o"></i>&nbsp; <span itemprop="name">#TITRE</span>[(#DATE|annee|<={1990}|non)<meta itemprop="startDate" content="[(#DATE|affdate{'c'})]"/><span class="sub-article-date" title="[(#DATE|affdate_heure)]">[(#DATE|jour)][ (#DATE|nom_mois)][ (#DATE|annee)]</span>]</h3></a><div class="clear"></div>
+		<a class="sub-article-title"  href="#article#ID_ARTICLE"><h3><i class="star fa fa-circle-o"></i>&nbsp; <span itemprop="name">#TITRE</span>[(#DATE|annee|<={1990}|non)<meta itemprop="startDate" content="[(#DATE|affdate{'c'})]"/><span class="sub-article-date" title="[(#DATE|affdate)][ - (#DATE|affdate{'H\hi'})]">[(#DATE|jour)][ (#DATE|nom_mois)][ (#DATE|annee)][ - (#DATE|>={#ENV{date}}|oui)[(#DATE|affdate{'H\hi'})]]</span>]</h3></a><div class="clear"></div>
 		<a itemprop="url" href="#list#ENV{id_rubrique}"></a>
 		[<div itemprop="description" class="sub-article-text">
 			(#TEXTE|replace{\n,#EVAL{"chr(10)"}#EVAL{"chr(9)"}#EVAL{"chr(9)"}#EVAL{"chr(9)"}})
