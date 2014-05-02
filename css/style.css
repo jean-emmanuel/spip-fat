@@ -358,6 +358,8 @@ html, body {
 .sub-article-list {
 	transition:opacity 0.3s;
 	opacity:1;
+	border-top:1px solid #ccc;
+	margin-top:20px;
 }
 .sub-article-list.loading {
 	background:url(loading2.gif) center no-repeat;
@@ -448,7 +450,8 @@ html, body {
 	display:none;
 }
 .sub-article-pagination strong, .sub-article-pagination a {
-		border:2px solid #333;
+		border:2px solid #555;
+		color:#555;
 		margin:20px 10px 0;
 		text-align:center;
 		font-size:16px;
@@ -463,7 +466,8 @@ html, body {
 	background:#ddd;
 }
 .sub-rss {
-		border:2px solid #333;
+		border:2px solid #555;
+		color:#555;
 		margin:20px 10px 0;
 		text-align:center;
 		font-size:16px;
@@ -475,7 +479,8 @@ html, body {
 		outline:0;
 }
 .sub-article-list-keywords {
-		border:2px solid #333;
+		border:2px solid #555;
+		color:#555;
 		margin:20px 10px 0;
 		text-align:center;
 		font-size:16px;
