@@ -2,7 +2,7 @@
 <html lang="#ENV{lang,#LANG}">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=#CHARSET" />
-	
+	<BOUCLE_1ere_rubrique(RUBRIQUES){lang_select=non}{id_parent=0}{par num titre, titre}{0,1}>[(#ID_RUBRIQUE|=={#ENV{id_rubrique}}|oui)#SET{page,sommaire}]</BOUCLE_1ere_rubrique>
 	<meta name="designer" content="Jean-Emmanuel Doucet"/>
 	<meta name="dcterms.license" content="Copyleft - Free Art License"/>
 	<link rel="schema.dcterms" href="http://artlibre.org/lal/en"/>
@@ -12,7 +12,7 @@
 	<meta property="og:title" content="[(#TITRE|textebrut)]"/>
 	<meta property="og:image" content="[(#LOGO_RUBRIQUE|image_reduire{280}|image_recadre{200,200,center}|extraire_attribut{src}|url_absolue)]"/>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"/>
-	<link rel="canonical" href="[(#ENV{page}|=={sommaire}|?{#URL_SITE_SPIP,#URL_RUBRIQUE}|url_absolue)]" />
+	<link rel="canonical" href="[(#ENV{page,#GET{page}}|=={sommaire}|?{#URL_SITE_SPIP,#URL_RUBRIQUE}|url_absolue)]" />
 	<style>
 	html, body {height:100%;margin:0;background-color:#000;}
 	[(#LOGO_RUBRIQUE|oui).bg-focus {background-position:center;background-size:cover;background-attachment:scroll;position:fixed;height:100%;width:100%;top:0;left:0;background-image:url([(#LOGO_RUBRIQUE|image_reduire{1920}|extraire_attribut{src})])}]
@@ -52,7 +52,7 @@
   
   <div class="header">
 
-	  <a class="title" href="[(#ENV{page}|=={sommaire}|?{#URL_SITE_SPIP,#URL_RUBRIQUE}|url_absolue)]">
+	  <a class="title" href="[(#ENV{page,#GET{page}}|=={sommaire}|?{#URL_SITE_SPIP,#URL_RUBRIQUE}|url_absolue)]">
 		  <h1>#TITRE</h1>
 		  <span>[(#TEXTE|PtoBR)]</span>
 	  </a>
