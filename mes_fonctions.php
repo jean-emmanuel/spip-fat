@@ -4,7 +4,7 @@
 	ecrire_config('articles_texte', 'oui');
 	ecrire_config('rubriques_descriptif', 'oui');
 	ecrire_config('activer_logos', 'oui');
-	ecrire_config('activer_logos_survol', 'oui');
+	ecrire_config('activer_logos_survol', 'non');
 	ecrire_config('activer_sites', 'oui');
 	ecrire_config('activer_syndic', 'non');
 	ecrire_config('forum_prive', 'non');
