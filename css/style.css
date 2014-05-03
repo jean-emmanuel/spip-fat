@@ -346,8 +346,13 @@ html, body {
 	border-top:1px solid #ccc;
 	margin-top:20px;
 }
-.sub-article-list .sub-article-list {
-  margin-left:20px;
+.sub-article-list .sub-article-list .sub-article {
+  padding:0 10px;
+  border-left:5px solid #eee;
+  border-right:5px solid #eee;
+}
+.sub-article-list .sub-article-list .sub-article-list-footer {
+  padding:0 10px;
 }
 .sub-article-list.loading {
 	background:url(loading2.gif) center no-repeat;
