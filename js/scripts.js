@@ -27,15 +27,7 @@ function parallax() {
 parallax();
 $(window).scroll(function(){
   parallax();
-});/*
-$('#knob').click(function(e){
-	e.preventDefault();
-	$('body, html').stop().animate({scrollTop:$('body').height()},1000);
 });
-$('#knob-bottom').click(function(e){
-	e.preventDefault();
-	$('body, html').stop().animate({scrollTop:0},600);
-});*/
 /*========== /SCROLL ==========*/
 
 /*========== MEDIAS FRAMES ==========*/
@@ -133,8 +125,12 @@ function sliders(){
 		  slider.resizeFix();
 	  });
   });
-  $('.swiper-slide, .spip_image').not('.loaded').addClass('loaded').each(function(){
+  $('.swiper-slide').not('.loaded').addClass('loaded').each(function(){
 	  $(this).css('background-image','url('+$(this).attr('data-bg')+')');
+  });
+  $('.spip_image').not('.loaded').addClass('loaded').each(function(){
+	  $(this).css('background-image','url('+$(this).attr('data-bg')+')');
+	  $(this).children('img').attr('src',$(this).children('img').attr('data-src'));
   });
 }
 sliders();

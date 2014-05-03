@@ -826,6 +826,7 @@ blockquote:before {
 }
 .spip_image {
 	max-width:100%;
+	background-size:cover;
 }
 .spip_image.float-right {
 	margin-left:10px;
@@ -837,6 +838,8 @@ blockquote:before {
 	display:block;
 	width:100%;
 	height:auto;
+	opacity:0;
+	visibility:hidden;
 }
 .clear {
 	clear:both;
@@ -922,8 +925,21 @@ content:"";
   left:50%;
   margin-left:-120px;
 }
+.spip_image.size-3 {
+  float:none;
+  clear:both;
+  margin:20px auto 0;
+  width:100%!important;
+}
 .content {
 	width:auto;
 }
-
+@media only screen and (max-width: 320px) {
+.spip_image.size-2 {
+  float:none;
+  clear:both;
+  margin:20px auto 0;
+  width:100%!important;;
+}
+}
 /*========== /RESPONSIVENESS ==========*/
