@@ -177,6 +177,7 @@ var anchors = function() {
       if ($(id).hasClass('sub-article')) {
         $(id).parent('.sub-article-list').children('.sub-article').not($(id)).removeClass('focus');
         $(id).toggleClass('focus');
+        if ($(id).offset().top < $("body,html").scrollTop()) { $("body,html").stop().scrollTop($(id).offset().top);return}
         if (!$(id).hasClass('focus')) {scroll = false;}
       }
       if (scroll) {
