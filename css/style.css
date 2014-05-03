@@ -484,6 +484,7 @@ html, body {
 	  cursor:pointer;
 	  transition: all 0.3s;
 	  position:relative;
+	  z-index:3;
 }
 .sub-article-list-keywords i {
 	width:32px;
@@ -497,7 +498,7 @@ html, body {
 }
 /*========== /ARTICLES LIST ==========*/
 .sub-article-list-keywords li:before {display:none;}
-.sub-article-list-keywords li {border-bottom:1px solid #888;  padding:5px;}
+.sub-article-list-keywords li {border-bottom:1px solid #888;  padding:2px;}
 .sub-article-list-keywords li:last-child {border-bottom:0px;}
 .sub-article-list-keywords ul {
   position:absolute;
@@ -508,7 +509,7 @@ html, body {
   list-style:none;
   background:#fafafa;
   border:1px solid #666;
-  top:15px;
+  top:35px;
   font-size:14px;
   border-radius:7px;
   display:none;
@@ -871,7 +872,7 @@ code {
 /*========== /TYPO & GENERATED CONTENT ==========*/
 
 /*========== RESPONSIVENESS ==========*/
-@media only screen and (max-width: 560px) {
+@media only screen and (max-width: 480px) {
 
 .player {
   width:240px;
