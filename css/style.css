@@ -346,6 +346,9 @@ html, body {
 	border-top:1px solid #ccc;
 	margin-top:20px;
 }
+.sub-article-list .sub-article-list {
+  margin-left:20px;
+}
 .sub-article-list.loading {
 	background:url(loading2.gif) center no-repeat;
 }
@@ -386,7 +389,7 @@ html, body {
 	display:none;
 	outline:0;
 }
-.sub-article.focus .previous-article {
+.sub-article.focus > .previous-article {
   display:block;
 }
 .sub-article h3 {
@@ -411,7 +414,7 @@ html, body {
 .sub-article  h3 i.star {
  a color:#555;
 }
-.sub-article.focus  h3 i.star:before{
+.sub-article.focus  > a h3 i.star:before{
 	content:"\f192";
 }
 .sub-article-date {

@@ -138,7 +138,7 @@ sliders();
 /*========== ARTICLES LIST (ajax) ==========*/
 if (window.location.hash.length>1) {
   if ($(window.location.hash).hasClass('sub-article')) {
-    $(window.location.hash).addClass('focus');
+    $(window.location.hash).addClass('focus').parents('.sub-article').addClass('focus');
   }
 }
 function ajaxListInit() {
@@ -170,7 +170,7 @@ var anchors = function() {
       var scroll = true;
       var id = '#'+$(this).attr('href').split("#")[1]
       if ($(id).hasClass('sub-article')) {
-        $('.sub-article').not($(id)).removeClass('focus');
+        $(id).parent('.sub-article-list').children('.sub-article').not($(id)).removeClass('focus');
         $(id).toggleClass('focus');
         if (!$(id).hasClass('focus')) {scroll = false;}
       }
