@@ -1,6 +1,6 @@
 /*========== FREE ART TEMPLATE  ==========*/
 /*
-Thème créé par Jean-Emmanuel Doucet - 2013. 
+Thème créé par Jean-Emmanuel Doucet - 2013 (v2 2014). 
 Copyleft : cette oeuvre est libre, vous pouvez la copier, la diffuser et la modifier selon les termes de la Licence Art Libre.
 http://www.artlibre.org/
 */
@@ -367,8 +367,6 @@ html, body {
 	max-height:80px;
 	overflow:hidden;
 }
-
-
 .sub-article.past .sub-article-date {
   color:#555;
 }
@@ -382,9 +380,6 @@ html, body {
 .sub-article .sub-article-title {
 	outline:0;
 	
-}
-.sub-article-title {
-
 }
 .previous-article {
 	height:80px;
@@ -407,14 +402,8 @@ html, body {
   white-space:nowrap;
   text-overflow:ellipsis;
 }
-.sub-article-text {
-
-}
-.sub-article.focus .sub-article-text {
-
-}
 .sub-article.focus  {
-	max-height:10000px;
+	max-height:none;
 }
 .sub-article  h3 i.star {
  a color:#555;
@@ -501,14 +490,19 @@ html, body {
 	line-height:32px;
 	text-align:center;
 }
-
 .sub-article-keywords {
 	margin-top:20px;
 }
-/*========== /ARTICLES LIST ==========*/
-.sub-article-list-keywords li:before {display:none;}
-.sub-article-list-keywords li {border-bottom:1px solid #888;  padding:2px;}
-.sub-article-list-keywords li:last-child {border-bottom:0px;}
+.sub-article-list-keywords li:before {
+  display:none;
+}
+.sub-article-list-keywords li {
+  border-bottom:1px solid #888;
+  padding:2px;
+}
+.sub-article-list-keywords li:last-child {
+  border-bottom:0px;
+}
 .sub-article-list-keywords ul {
   position:absolute;
   width:120px;
@@ -548,6 +542,10 @@ html, body {
 .sub-rss:hover, .sub-article-list-keywords:hover,  .sub-article-pagination a:hover {
   background-color:#eee;
 }
+/*========== /ARTICLES LIST ==========*/
+
+
+
 /*========== GUI ==========*/
 .ui-container {
 	position:relative;
