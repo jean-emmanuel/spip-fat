@@ -853,9 +853,11 @@ code {
 	display:block;
 	line-height:20px!important;
 	border: 1px solid #ddd;
-	padding:3px;
+	padding:10px;
 	font-size:14px;
 	margin-top:20px;
+	overflow-x: auto;
+  white-space: nowrap;
 }
 .syntax-container {
   margin-top:20px;
