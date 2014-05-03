@@ -209,4 +209,5 @@ function syntaxRefresh() {
 syntaxLoad();
 /*========== /SYNTAX HILIGHTER ==========*/
 
-$('.bg-focus').fadeIn(700);
+  $('.bg-focus').fadeIn(700);
+
