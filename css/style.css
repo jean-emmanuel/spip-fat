@@ -231,7 +231,7 @@ html, body {
 
 /*========== CONTENT PAGE ==========*/
 .content-container {
-	z-index:4;
+	z-index:1;
 	padding-top:1px;
 	background:#fafafa;
 	abackground:rgba(255,255,255,0.95);
@@ -498,8 +498,12 @@ html, body {
 	  cursor:pointer;
 	  transition: all 0.3s;
 	  position:relative;
-	  z-index:3;
+	  az-index:3;
 }
+.sub-article-list-keywords.on {
+  border-color:#298;
+}
+
 .sub-article-list-keywords i {
 	width:32px;
 	height:34px;
@@ -509,51 +513,28 @@ html, body {
 .sub-article-keywords {
 	margin-top:20px;
 }
-.sub-article-list-keywords li:before {
-  display:none;
-}
-.sub-article-list-keywords li {
-  border-bottom:1px solid #888;
-  padding:2px;
-}
-.sub-article-list-keywords li:last-child {
-  border-bottom:0px;
-}
-.sub-article-list-keywords ul {
-  position:absolute;
-  width:120px;
-  left:50%;
-  margin-left:-60px;
-  text-align:center;
-  list-style:none;
-  background:#fafafa;
-  border:1px solid #666;
-  top:35px;
-  font-size:14px;
-  border-radius:7px;
-  display:none;
-}
-.sub-article-list-keywords a {
-  font-weight:400;
-  outline:0;
-}
-.sub-article-list-keywords:hover ul {
-  display:block;
-} 
-.sub-article-list-keywords ul:before, .sub-article-list-keywords ul:after {
-  content:"";
-  position:absolute;
-  border-bottom:10px solid #666;
-  border-left:10px solid transparent;
-  border-right:10px solid transparent;
-  top:-10px;
-  left:50%;
-  margin-left:-10px;
+.modal {
 
 }
-.sub-article-list-keywords ul:after {
-  top:-8px;
-  border-bottom:10px solid #fafafa;
+
+.modal-keywords {
+  font-size:15px;
+  z-index:2;
+  display: none;
+  background: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #000;
+}
+.modal-keywords a.keyword {
+  display:block;
+  text-align:center;
+  line-height:20px;
+  padding:7px;
+  outline:0;
+  border-top:1px solid #ccc;
+}
+.modal-keywords a.keyword:first-child {
+  border-top:0px;
 }
 .sub-rss:hover, .sub-article-list-keywords:hover,  .sub-article-pagination a:hover {
   background-color:#eee;
@@ -741,6 +722,7 @@ a {
 }
 a.on {
   font-weight:600;
+  color:#298;
 }
 .align-center, .center {
 	text-align:center;
@@ -892,6 +874,40 @@ content:"";
 
 
 /*========== /TYPO & GENERATED CONTENT ==========*/
+
+
+
+.modal a.close-modal {
+  position: absolute;
+  top: -12.5px;
+  right: -12.5px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  text-indent: -9999px;
+  background: url(close.png) no-repeat 0 0;
+}
+
+.modal-spinner {
+  display: none;
+  width: 64px;
+  height: 64px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-right: -32px;
+  margin-top: -32px;
+  background: url(spinner.gif) #111 no-repeat center center;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+}
+
+
+
+
 
 /*========== RESPONSIVENESS ==========*/
 @media only screen and (max-width: 480px) {

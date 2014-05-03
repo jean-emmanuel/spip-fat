@@ -29,15 +29,14 @@
 	<div class="sub-article-list-footer">
 		[(#ENV{args/norss}|non)<a href="#URL_SITE_SPIP?page=backend&sr=#ENV{args/id}" title="Flux RSS" class="sub-rss"><i class="fa fa-rss"></i></a>]
 		<B_mots_rubrique>
-		<div class="sub-article-list-keywords">
-		<i class="fa fa-tags"></i>
-			<ul>
-				[(#ENV{id_mot}|oui)<li><a href="[(#SELF|parametre_url{id_mot,''})#liste#ID_RUBRIQUE]">Tout afficher</a></li>]
+      <a class="sub-article-list-keywords[ (#ENV{id_mot}|oui)on]" href="#mots#ENV{args/id}" rel="modal:open"><i class="fa fa-tags"></i></a>
+			<div class="modal-keywords" id="mots#ENV{args/id}" style="display:none;width:200px;">
+				[(#ENV{id_mot}|oui)<a class="keyword" rel="modal:close" href="[(#SELF|parametre_url{id_mot,''})#liste#ID_RUBRIQUE]">Tout afficher</a>]
 				<BOUCLE_mots_rubrique(MOTS){id_article IN #GET{articles_tri}}{si #ENV{args/nokeyword}|non}>
-				<li><a href="[(#SELF|parametre_url{debut#ENV{args/id},''}|parametre_url{id_mot,#ID_MOT})#liste#ID_RUBRIQUE]"[ (#EXPOSE|oui)class="on"]>#TITRE</a></li>
+				<a class="keyword[ (#EXPOSE|oui)on]" rel="modal:close"  href="[(#SELF|parametre_url{debut#ENV{args/id},''}|parametre_url{id_mot,#ID_MOT})#liste#ID_RUBRIQUE]">#TITRE</a>
 				</BOUCLE_mots_rubrique>
-			</ul>
-		</div>
+			</div>
+
 		</B_mots_rubrique>
 		[<div class="sub-article-pagination">
 			(#PAGINATION{page}|replace{\n,#EVAL{"chr(10)"}#EVAL{"chr(9)"}#EVAL{"chr(9)"}#EVAL{"chr(9)"}})
