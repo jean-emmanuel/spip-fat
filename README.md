@@ -66,12 +66,13 @@ Integration dans un article
 
 **Image :**
 ```  
-<imgX|align|nolink|noborder|width>
+<imgX|align|nolink|noborder|width=XX|clear>
 ```
- - align : left / right / center
+ - align : left / right / center -> flottement de l'image
  - nolink : masque le lien vers l'image d'origine (non réduite)
  - noborder : masque la bordure de l'image (pratique pour les images sur fond transparent)
- - width : redimensionne l'image par la largeur (l'image ne pourra pas dépasser la largeur du texte.
+ - width : largeur de l'image en %
+ - clear : arrête le flotement (float:left/right) après cette image.
  
 **Document (affiche le type, la taille et le titre du document) :**
 ```  
@@ -92,20 +93,20 @@ Integration dans un article
 
 **Gallerie photo :**
 ```  
-<slider|id=ID_ARTICLE|titre=TITRE(OPTIONNEL)>
+<slider|id=ID|titre=TITRE(OPTIONNEL)>
 ```
  - Affiche les images ajoutées à l'article pointé par l'identifiant dans un carousel
  - Chaque image peut avoir un texte associé (indiqué dans le champ "Crédits")
 
 **Liste d'articles s'une sous rubrique :** 
 ```  
-<liste|id_rubrique=ID_RUBRIQUE|pagination=NB_PAR_PAGE(OPTIONNEL)|norss=X(1 pour désactiver)>
+<liste|id=ID_RUBRIQUE|pagination=NB_PAR_PAGE(OPTIONNEL)|ARGS>
 ```
  - Affiche les articles de la sous rubrique dans un accordéon avec
    - tri chronologique intelligent (ancien -> récents -> aujourd'hui -> futur proche -> futur lointain)
    - pagination ajax
-   - filtre par mot-clé (si les articles ont des mots-clés associés)
-   - abonnement au flux rss
+   - filtre par mot-clé si les articles ont des mots-clés associés ( |nokeyword pour désactiver)
+   - abonnement au flux rss ( |norss pour désactiver)
    
    
 **Code source :**

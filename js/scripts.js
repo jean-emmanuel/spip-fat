@@ -94,8 +94,13 @@ function mediaFrames(){
   });
   $('.bandcamp').not('.loaded').addClass('loaded').each(function(){
 	  var bandcamp = document.createElement('iframe');
-	  bandcamp.src = 'http://bandcamp.com/EmbeddedPlayer/album='+$(this).attr('id')+'/size=medium/bgcol=ffffff/linkcol=333333/transparent=true/';
+	  bandcamp.src = 'http://bandcamp.com/EmbeddedPlayer/album='+$(this).attr('id')+'/size=medium/bgcol=ffffff/linkcol=333333/transparent=true/track='+$(this).attr('data-track');
 	  $(this)[0].appendChild(bandcamp);
+  });
+  $('.soundcloud').not('.loaded').addClass('loaded').each(function(){
+	  var soundcloud = document.createElement('iframe');
+	  soundcloud.src = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/'+$(this).attr('data-mode')+'/'+$(this).attr('id')+'&amp;color=333333&amp;auto_play=false&amp;hide_related=false&amp;show_artwork=true';
+	  $(this)[0].appendChild(soundcloud);
   });
 }
 mediaFrames();

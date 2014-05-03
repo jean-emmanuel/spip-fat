@@ -1,40 +1,40 @@
 #SET{articles_tri,#ARRAY}
-<BOUCLE_date_tri_futur(ARTICLES){id_rubrique=#ENV{id_rubrique}}{id_mot?=#ENV{id_mot}}{par date}{age<0}>
+<BOUCLE_date_tri_futur(ARTICLES){id_rubrique=#ENV{args/id}}{id_mot?=#ENV{id_mot}}{par date}{age<0}>
 			[(#SET{articles_tri, #GET{articles_tri}|array_merge{#ARRAY{#COMPTEUR_BOUCLE,#ID_ARTICLE}}})]
 </BOUCLE_date_tri_futur>
 [(#SET{compteur_present,#TOTAL_BOUCLE})]
 </B_date_tri_futur>
-<BOUCLE_date_tri_passe(ARTICLES){id_rubrique=#ENV{id_rubrique}}{id_mot?=#ENV{id_mot}}{par date}{inverse}{age>=0}>
+<BOUCLE_date_tri_passe(ARTICLES){id_rubrique=#ENV{args/id}}{id_mot?=#ENV{id_mot}}{par date}{inverse}{age>=0}>
 			[(#SET{articles_tri, #GET{articles_tri}|array_merge{#ARRAY{#COMPTEUR_BOUCLE|plus{#GET{compteur_present}},#ID_ARTICLE}}})]
 </BOUCLE_date_tri_passe>
 
 <B_list>
 [<div class="pagination-anchor">(#ANCRE_PAGINATION)</div>]
 <div>
-<div class="sub-article-list" id="liste#ENV{id_rubrique}">
-	<BOUCLE_list(ARTICLES) {lang_select=non}{id_article IN #GET{articles_tri}}{pagination #ENV{pagination,5} #ENV{id_rubrique}}>
+<div class="sub-article-list" id="liste#ENV{args/id}">
+	<BOUCLE_list(ARTICLES){si #ENV{args/id}|oui}{lang_select=non}{id_article IN #GET{articles_tri}}{pagination #ENV{pagination,5} #ENV{args/id}}>
 	<div itemprop="event" itemscope itemtype="http://schema.org/Event" id="article#ID_ARTICLE" class="sub-article[ (#COMPTEUR_BOUCLE|>{#GET{compteur_present}}|oui)past][ (#COMPTEUR_BOUCLE|<={#GET{compteur_present}}|oui)futur][ (#ENV{date}|affdate|=={#DATE|affdate}|oui)today]">
 		[<a href="#article(#GET{id_prev})" class="float-right previous-article"><i class="fa fa-arrow-up"></i></a>]#SET{id_prev,#ID_ARTICLE}
-		<a class="sub-article-title"  href="#article#ID_ARTICLE"><h3><i class="star fa fa-circle-o"></i>&nbsp; <span itemprop="name">#TITRE</span>[(#DATE|annee|<={1990}|non)<meta itemprop="startDate" content="[(#DATE|affdate{'c'})]"/><span class="sub-article-date" title="[(#DATE|affdate)][ - (#DATE|affdate{'H\hi'})]">[(#DATE|jour)][ (#DATE|nom_mois)][ (#DATE|annee)][ - (#DATE|>={#ENV{date}}|oui)[(#DATE|affdate{'H\hi'})]]</span>]</h3></a><div class="clear"></div>
-		<a itemprop="url" href="#list#ENV{id_rubrique}"></a>
+		<a class="sub-article-title"  href="#article#ID_ARTICLE"><h3><i class="star fa fa-circle-o"></i>&nbsp; <span itemprop="name">#TITRE</span>[(#ENV{args/nodate}|non)[(#DATE|annee|<={1990}|non)<meta itemprop="startDate" content="[(#DATE|affdate{'c'})]"/><span class="sub-article-date" title="[(#DATE|affdate)][ - (#DATE|affdate{'H\hi'})]">[(#DATE|jour)][ (#DATE|nom_mois)][ (#DATE|annee)][ - (#DATE|>={#ENV{date}}|oui)[(#DATE|affdate{'H\hi'})]]</span>]]</h3></a><div class="clear"></div>
+		<a itemprop="url" href="#list#ENV{args/id}"></a>
 		[<div itemprop="description" class="sub-article-text">
-			(#TEXTE|replace{\n,#EVAL{"chr(10)"}#EVAL{"chr(9)"}#EVAL{"chr(9)"}#EVAL{"chr(9)"}})
+(#TEXTE)
 		</div>]
 		<B_mots><div class="sub-article-keywords">
-			<i class="fa fa-tags"></i>&nbsp;<BOUCLE_mots(MOTS){id_article}{", "}><a class="spip_in" href="[(#SELF|parametre_url{id_mot,#ID_MOT})#liste#ID_RUBRIQUE]">#TITRE</a></BOUCLE_mots>
+			<i class="fa fa-tags"></i>&nbsp;<BOUCLE_mots(MOTS){si #ENV{args/nokeyword}|non}{id_article}{", "}><a class="spip_in" href="[(#SELF|parametre_url{id_mot,#ID_MOT})#liste#ID_RUBRIQUE]">#TITRE</a></BOUCLE_mots>
 		</div></B_mots>
 	</div>
 	</BOUCLE_list>
 
 	<div class="sub-article-list-footer">
-		[(#ENV{norss}|!={1}|oui)<a href="#URL_SITE_SPIP?page=backend&sr=#ENV{id_rubrique}" title="Flux RSS" class="sub-rss"><i class="fa fa-rss"></i></a>]
+		[(#ENV{args/norss}|non)<a href="#URL_SITE_SPIP?page=backend&sr=#ENV{args/id}" title="Flux RSS" class="sub-rss"><i class="fa fa-rss"></i></a>]
 		<B_mots_rubrique>
 		<div class="sub-article-list-keywords">
 		<i class="fa fa-tags"></i>
 			<ul>
 				[(#ENV{id_mot}|oui)<li><a href="[(#SELF|parametre_url{id_mot,''})#liste#ID_RUBRIQUE]">Tout afficher</a></li>]
-				<BOUCLE_mots_rubrique(MOTS){id_article IN #GET{articles_tri}}>
-				<li><a href="[(#SELF|parametre_url{debut#ENV{id_rubrique},''}|parametre_url{id_mot,#ID_MOT})#liste#ID_RUBRIQUE]"[ (#EXPOSE|oui)class="on"]>#TITRE</a></li>
+				<BOUCLE_mots_rubrique(MOTS){id_article IN #GET{articles_tri}}{si #ENV{args/nokeyword}|non}>
+				<li><a href="[(#SELF|parametre_url{debut#ENV{args/id},''}|parametre_url{id_mot,#ID_MOT})#liste#ID_RUBRIQUE]"[ (#EXPOSE|oui)class="on"]>#TITRE</a></li>
 				</BOUCLE_mots_rubrique>
 			</ul>
 		</div>
