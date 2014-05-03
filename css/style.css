@@ -870,13 +870,15 @@ iframe {
 
 code {
 	display:block;
+	font-family: "Bitstream Vera Sans Mono","Courier",monospace;
 	line-height:20px!important;
-	border: 1px solid #ddd;
-	padding:8px;
+	padding:8px 8px 8px 14px ;
 	font-size:14px;
 	margin-top:20px;
 	overflow-x: auto;
   white-space: nowrap;
+  border: 1px solid #eee;
+  border-left:3em solid #eee;
 }
 .syntax-container {
   margin-top:20px;
