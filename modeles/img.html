@@ -4,6 +4,6 @@
 	<img data-src="[(#FICHIER|image_reduire{#GET{largeur},0}|extraire_attribut{src})]"/>
 	[<div class="ui-element bottom-left text">(#ENV{args/titre}|sinon{#TITRE|textebrut})</div>]
 	<div class="alt"><a href="#URL_DOCUMENT">[(#ENV{args/titre}|sinon{#TITRE|textebrut}|sinon{#URL_DOCUMENT})]</a></div>
-	[(#ENV{args/nolink}|non)<a href="#URL_DOCUMENT" target="_blank" class="ui-element top-right text"><i class="fa fa-expand"></i></a>]
+	[(#ENV{args/nolink}|non)<a href="[(#FICHIER|image_reduire{1920,0}|extraire_attribut{src})]" target="_blank" class="ui-element top-right text"><i class="fa fa-expand"></i></a>]
 </div>[(#ENV{args/clear}|oui)<div class="clear"></div>]
 </BOUCLE_img>
