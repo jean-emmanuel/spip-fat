@@ -118,7 +118,7 @@ html, body {
 	.title span{
 		display:block;
 		font-size:16px;
-		line-height:12px;
+		line-height:16px;
 		text-align:inherit;
 	}
 	
@@ -733,7 +733,9 @@ a.on {
 	margin-left:auto;
 	margin-right:auto;
 }
-
+.small {
+  font-size:11px;
+}
 .spip_note_ref {
 	font-size:11px;
 	vertical-align:super;
