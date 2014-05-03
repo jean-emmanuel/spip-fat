@@ -73,7 +73,7 @@ Integration dans un article
  - noborder : masque la bordure de l'image (pratique pour les images sur fond transparent)
  - width : redimensionne l'image par la largeur (l'image ne pourra pas dépasser la largeur du texte.
  
-Document (affiche le type, la taille et le titre du document) : 
+**Document (affiche le type, la taille et le titre du document) :**
 ```  
 <docX>
 ```
