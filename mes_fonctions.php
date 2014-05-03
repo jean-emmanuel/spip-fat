@@ -1,5 +1,6 @@
 <?php
 	include_spip('inc/config');
+	
 	ecrire_config('rubriques_texte', 'oui');
 	ecrire_config('articles_texte', 'oui');
 	ecrire_config('rubriques_descriptif', 'oui');
@@ -19,4 +20,15 @@
 			return 1;
 		}
 	}
+function traiter_echap_code($regs) {
+	list(,,$att,$corps) = $regs;
+	$echap = htmlspecialchars($corps); // il ne faut pas passer dans entites_html, ne pas transformer les &#xxx; du code !
+	$echap = preg_replace("/^[\n\r]+|[\n\r]+$/s", "", $echap);
+	$echap = nl2br($echap);
+	$echap = str_replace("\t", "&nbsp; &nbsp; &nbsp; &nbsp; ", $echap);
+	$echap = str_replace("  ", "&nbsp;", $echap);
+	$echap = str_replace("&lt;//code&gt;", "&lt;/code&gt;", $echap);
+	$echap = "\n<code$att>".$echap."\n</code>\n";
+	return $echap;
+}
 ?>
