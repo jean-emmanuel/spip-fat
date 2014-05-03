@@ -43,28 +43,28 @@ Aller dans l'espace privé (monsite.fr/ecrire)
 Integration dans un article
 ===========
 
-Bandcamp : 
+**Bandcamp :** 
 ```  
 <bandcamp|id=NUMERO_D'ALBUM>
 ```
 
-Vimeo : 
+**Vimeo :** 
 ```  
 <vimeo|id=ID_VIDEO>
 <album_vimeo|id=ID_ALBUM_VIMEO>
 ```
 
-Youtube : 
+**Youtube :** 
 ```  
 <youtube|id=ID_VIDEO>
 ```
 
-Dailymotion : 
+**Dailymotion :** 
 ```  
 <dailymotion|id=ID_VIDEO>
 ```
 
-Image :
+**Image :**
 ```  
 <imgX|align|nolink|noborder|width>
 ```
@@ -79,25 +79,25 @@ Document (affiche le type, la taille et le titre du document) :
 ```
 
 
-Lien important :
+**Lien important :**
 ```  
 <link|url=URL_LIEN|titre=TITRE_LIEN>
 ```
 
-Lien vers document important :
+**Lien vers document important :**
 ```  
 <doclinkX|titre=TITRE_DOCUMENT>
 ```
 
 
-Gallerie photo : 
+**Gallerie photo :**
 ```  
 <slider|id=ID_ARTICLE|titre=TITRE(OPTIONNEL)>
 ```
  - Affiche les images ajoutées à l'article pointé par l'identifiant dans un carousel
  - Chaque image peut avoir un texte associé (indiqué dans le champ "Crédits")
 
-Liste d'articles s'une sous rubrique : 
+**Liste d'articles s'une sous rubrique :** 
 ```  
 <liste|id_rubrique=ID_RUBRIQUE|pagination=NB_PAR_PAGE(OPTIONNEL)|norss=X(1 pour désactiver)>
 ```
@@ -108,7 +108,7 @@ Liste d'articles s'une sous rubrique :
    - abonnement au flux rss
    
    
-Code source : 
+**Code source :**
 ```  
 <code class="syntax LANG">
 CODE_SOURCE
