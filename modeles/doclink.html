@@ -1,3 +1,3 @@
 <BOUCLE_doc (DOCUMENTS) {id_document=#ENV{id}} {tout}>
-<div class="biglink"><a href="#URL_DOCUMENT" [title="(#TITRE|sinon{#ENV{titre}})"]>[<span class="spip_size"><span>#TYPE_DOCUMENT </span><span>[(#TAILLE|taille_en_octets)]</span></span>] [(#TITRE|sinon{#ENV{titre}}|sinon{#URL_DOCUMENT})]</a></div>
+<div class="biglink"><a href="#URL_DOCUMENT" [title="(#ENV{titre}|sinon{#TITRE})"]>[<span class="spip_size"><span>#TYPE_DOCUMENT </span><span>[(#TAILLE|taille_en_octets)]</span></span>] [(#ENV{titre}|sinon{#TITRE}|sinon{#URL_DOCUMENT})]</a></div>
 </BOUCLE_doc>

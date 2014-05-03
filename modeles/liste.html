@@ -27,7 +27,7 @@
 	</BOUCLE_list>
 
 	<div class="sub-article-list-footer">
-		<a href="#URL_SITE_SPIP?page=backend&sr=#ENV{id_rubrique}" title="Flux RSS" class="sub-rss"><i class="fa fa-rss"></i></a>
+		[(#ENV{norss}|!={1}|oui)<a href="#URL_SITE_SPIP?page=backend&sr=#ENV{id_rubrique}" title="Flux RSS" class="sub-rss"><i class="fa fa-rss"></i></a>]
 		<B_mots_rubrique>
 		<div class="sub-article-list-keywords">
 		<i class="fa fa-tags"></i>
