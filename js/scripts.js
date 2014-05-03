@@ -91,7 +91,7 @@ function mediaFrames(){
 		  container.find('iframe').load(function(){container.find('.center-center').hide();});
 	  });
   });
-  $('.bandcamp').each(function(){
+  $('.bandcamp').not('.loaded').addClass('loaded').each(function(){
 	  var bandcamp = document.createElement('iframe');
 	  bandcamp.src = 'http://bandcamp.com/EmbeddedPlayer/album='+$(this).attr('id')+'/size=medium/bgcol=ffffff/linkcol=333333/transparent=true/';
 	  $(this)[0].appendChild(bandcamp);
