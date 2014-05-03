@@ -15,7 +15,7 @@
 	<link rel="canonical" href="[(#ENV{page,#GET{page}}|=={sommaire}|?{#URL_SITE_SPIP,#URL_RUBRIQUE}|url_absolue)]" />
 	<style>
 	html, body {height:100%;margin:0;background-color:#000;}
-	[(#LOGO_RUBRIQUE|oui).bg-focus {background-position:center;background-size:cover;background-attachment:scroll;position:fixed;height:100%;width:100%;top:0;left:0;background-image:url([(#LOGO_RUBRIQUE|image_reduire{1920}|extraire_attribut{src})])}]
+	[(#LOGO_RUBRIQUE|oui).bg-focus {background-position:center;background-size:cover;background-attachment:scroll;position:fixed;height:100%;width:100%;top:0;left:0;background-image:url([(#LOGO_RUBRIQUE|image_reduire{1920}|extraire_attribut{src}|url_absolue)])}]
 	/* FOUC Prevention */
 	</style>
 	<noscript>
