@@ -144,7 +144,7 @@ if (window.location.hash.length>1) {
 function ajaxListInit() {
 	$('.sub-article-list').each(function(){
 		var list = $(this);
-		list.find('.sub-article-list-keywords a, .sub-article-keywords a, a.lien_pagination').click(function(e){e.preventDefault();ajaxList(list.attr('id'),$(this).attr('href'))});
+		list.find('.sub-article-list-keywords a, .sub-article-keywords a, a.lien_pagination').off('click.ajax').on('click.ajax',function(e){e.preventDefault();ajaxList(list.attr('id'),$(this).attr('href'))});
 	});
 }
 ajaxListInit();
