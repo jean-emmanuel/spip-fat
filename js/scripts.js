@@ -231,16 +231,16 @@ anchors();
 function syntaxLoad() {
   if ($('.syntax').length) {
     $.getScript(SyntaxRoot + "jquery.syntax.min.js", function () {
-    $.syntax({root: SyntaxRoot, inlineLayout: "fixed",theme: "paper"});
+    syntaxRefresh();
     });
   }
 }
-function syntaxRefresh() {
+function syntaxRefresh(){
   if ($('.syntax').length) {
     $.syntax({root: SyntaxRoot, inlineLayout: "fixed",theme: "paper"});
   }
 }
-syntaxLoad();
 /*========== /SYNTAX HILIGHTER ==========*/
 
 $('.bg-focus').fadeIn(700);
+syntaxLoad();
