@@ -22,7 +22,9 @@
 		<a class="sub-article-title"  href="#article#ID_ARTICLE"><h3><i class="star fa fa-circle-o"></i>&nbsp; <span itemprop="name">#TITRE</span>[(#ENV{args/nodate}|non)[(#DATE|annee|<={1990}|non)<meta itemprop="startDate" content="[(#DATE|affdate{'c'})]"/><span class="sub-article-date" title="[(#DATE|affdate)][ - (#DATE|affdate{'H\hi'})]">[(#DATE|jour)][ (#DATE|nom_mois)][ (#DATE|annee)][ - (#DATE|>={#ENV{date}}|oui)[(#DATE|affdate{'H\hi'})]]</span>]]</h3></a><div class="clear"></div>
 		<a itemprop="url" href="#list#ENV{args/id}"></a>
 		[<div itemprop="description" class="sub-article-text">
+		
 (#TEXTE)
+
 		</div>]
 		<B_mots><div class="sub-article-keywords">
 			<i class="fa fa-tags"></i>&nbsp;<BOUCLE_mots(MOTS){si #ENV{args/nokeyword}|non}{id_article}{", "}><a class="spip_in" href="[(#SELF|parametre_url{id_mot,#ID_MOT})#liste#ID_RUBRIQUE]">#TITRE</a></BOUCLE_mots>
