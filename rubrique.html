@@ -1,8 +1,8 @@
-<BOUCLE_rubrique(RUBRIQUES){lang_select=non}{id_parent=0}{id_rubrique=#ENV{id_rubrique}}{0,1}><!DOCTYPE html>
+<BOUCLE_rubrique(RUBRIQUES){tout}{lang_select=non}{id_parent=0}{id_rubrique=#ENV{id_rubrique}}{0,1}><!DOCTYPE html>
 <html lang="#ENV{lang,#LANG}">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=#CHARSET" />
-	<BOUCLE_1ere_rubrique(RUBRIQUES){lang_select=non}{id_parent=0}{par num titre, titre}{0,1}>[(#ID_RUBRIQUE|=={#ENV{id_rubrique}}|oui)#SET{page,sommaire}]</BOUCLE_1ere_rubrique>
+	<BOUCLE_1ere_rubrique(RUBRIQUES){tout}{lang_select=non}{id_parent=0}{par num titre, titre}{0,1}>[(#ID_RUBRIQUE|=={#ENV{id_rubrique}}|oui)#SET{page,sommaire}]</BOUCLE_1ere_rubrique>
 	<meta name="designer" content="Jean-Emmanuel Doucet"/>
 	<meta name="dcterms.license" content="Copyleft - Free Art License"/>
 	<link rel="schema.dcterms" href="http://artlibre.org/lal/en"/>
