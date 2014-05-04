@@ -31,9 +31,9 @@ function parallax() {
 	var yPos = -($(window).scrollTop() / 6);
 	bg.css({'transform': 'translateY('+yPos+'px)'});
 }
-parallax();
+//parallax();
 $(window).scroll(function(){
-  parallax();
+  //parallax();
 });
 /*========== /SCROLL ==========*/
 

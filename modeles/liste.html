@@ -33,7 +33,7 @@
 	<div class="sub-article-list-footer">
 		[(#ENV{args/norss}|non)<a href="#URL_SITE_SPIP?page=backend&sr=#ENV{args/id}" title="Flux RSS" class="sub-rss"><i class="fa fa-rss"></i></a>]
 		<B_mots_rubrique>
-      <a class="sub-article-list-keywords[ (#ENV{id_mot}|oui)on]" href="#mots#ENV{args/id}" rel="modal:open"><i class="fa fa-tags"></i></a>
+      <a class="sub-article-list-keywords[ (#ENV{id_mot}|oui)on]" href="#mots#ENV{args/id}" rel="modal:open"><i class="fa fa-tags"></i><BOUCLE_cmot(MOTS){id_mot=#ENV{id_mot}}><span>[(#TITRE|textebrut)]</span></BOUCLE_cmot></a>
 			<div class="modal-keywords" id="mots#ENV{args/id}" style="display:none;width:200px;">
 				[(#ENV{id_mot}|oui)<a class="keyword" rel="modal:close" href="[(#SELF|parametre_url{id_mot,''})#liste#ID_RUBRIQUE]">Tout afficher</a>]
 				<BOUCLE_mots_rubrique(MOTS){id_article IN #GET{articles_rub}}{si #ENV{args/nokeyword}|non}>
