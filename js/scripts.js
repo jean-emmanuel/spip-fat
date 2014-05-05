@@ -199,6 +199,7 @@ var anchors = function() {
       var scroll = true;
       var id = '#'+$(this).attr('href').split("#")[1]
       
+      
       if ($(id).hasClass('sub-article')) {
         $(id).parent('.sub-article-list').children('.sub-article').not($(id)).removeClass('focus');
         $(id).toggleClass('focus');
