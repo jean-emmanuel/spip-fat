@@ -1,7 +1,7 @@
 [(#HTTP_HEADER{Content-type: text/xml[; charset=(#CHARSET)]})]<BOUCLE_sousrubrique(RUBRIQUES){lang_select=non}{id_rubrique=#ENV{sr}}><?xml version="1.0"[ encoding="(#CHARSET)"]?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 <BOUCLE_rubrique(HIERARCHIE){id_rubrique}{0,1}>#SET{titre,#TITRE|textebrut}#SET{url,#URL_RUBRIQUE|url_absolue}#SET{desc,#TEXTE|textebrut}</BOUCLE_rubrique>
-
+<BOUCLE_1ere_rubrique(RUBRIQUES){lang_select=non}{id_parent=0}{par num titre, titre}{0,1}>[(#ID_RUBRIQUE|=={#ENV{id_rubrique}}|oui)#SET{page,sommaire}]</BOUCLE_1ere_rubrique>
 <channel[ xml:lang="(#LANG)"]>
 	<title>[(#GET{titre})] - [(#TITRE|textebrut)]</title>
 	<link>[(#NOM_SITE_SPIP|=={#GET{titre}}|?{#URL_SITE_SPIP,#GET{url})]/</link>
@@ -13,7 +13,7 @@
 <BOUCLE_articles(ARTICLES) {id_article IN #GET{articles_tri}}{0,10}{unique}>
 	<item[ xml:lang="(#LANG)"]>
 		<title>[(#TITRE|textebrut)]</title>
-		<link>[(#NOM_SITE_SPIP|=={#GET{titre}}|?{#URL_SITE_SPIP,#GET{url}})]</link>
+		<link>[(#GET{page}|=={sommaire}|?{#URL_SITE_SPIP,#GET{url}})]</link>
 		<dc:date>[(#DATE|date_iso)]</dc:date>
 		<dc:format>text/html</dc:format>
 		<dc:language>#LANG</dc:language>

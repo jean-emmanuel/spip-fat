@@ -1,8 +1,9 @@
 <BOUCLE_img (DOCUMENTS) {id_document} {mode=image} {tout}>
-<div class="spip_image ui-container[ (#ENV{noborder}|oui)noborder][ float-(#ENV{align}|match{left|right|center})]" style="width:[(#ENV{width,#LARGEUR})]px;height:[(#FICHIER|image_reduire{398,0}|image_reduire{#ENV{width,0},0}|extraire_attribut{height})]px" data-bg="[(#FICHIER|image_reduire{398,0}|image_reduire{#ENV{width,0},0}|extraire_attribut{src}|url_absolue)]">
-	[<div class="ui-element top-left normal">(#ENV{titre}|sinon{#TITRE})</div>]
-	<div class="alt"><a href="#URL_DOCUMENT">[(#TITRE|texte_backend|sinon{#URL_DOCUMENT})]</a></div>
-
-	[(#ENV{nolink}|non)<a href="#URL_DOCUMENT" target="_blank" class="ui-element bottom-right normal"><i class="fa fa-download"></i></a>]
-</div>
+#SET{base,400}#SET{largeur,#GET{base}|div{100}|mult{#ENV{args/width,100}}}
+<div class="spip_image ui-container[ (#ENV{noborder}|oui)noborder][ float-(#ENV{align}|match{left|right|center})][ size-(#ENV{args/width,100}|div{50}|round|plus{1})]" style="width:#GET{largeur}px;" data-bg="[(#FICHIER|image_reduire{#GET{largeur},0}|extraire_attribut{src}|url_absolue)]">
+	<img data-src="[(#FICHIER|image_reduire{#GET{largeur},0}|extraire_attribut{src})]"/>
+	[<div class="ui-element bottom-left text">(#ENV{args/titre}|sinon{#TITRE|textebrut})</div>]
+	<div class="alt"><a href="#URL_DOCUMENT">[(#ENV{args/titre}|sinon{#TITRE|textebrut}|sinon{#URL_DOCUMENT})]</a></div>
+	[(#ENV{args/nolink}|non)<a href="[(#FICHIER|image_reduire{1920,0}|extraire_attribut{src})]" target="_blank" class="ui-element top-right text"><i class="fa fa-expand"></i></a>]
+</div>[(#ENV{args/clear}|oui)<div class="clear"></div>]
 </BOUCLE_img>
