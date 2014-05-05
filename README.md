@@ -30,7 +30,7 @@ Aller dans l'espace privé (monsite.fr/ecrire)
 - Dans la configuration des fonctions avancées de spip, activer la compression automatique des images (GD2 si possible)
 - Créer une rubrique, préciser le titre, le numéro de l'abum bandcamp et le sous titre
  - Les rubriques sont triées par numéro de titre (1. 2. etc) puis par titre. La première rubrique se voit attribuer l'url du site comme url canonique et sert de page d'acceuil
- - Numéro d'album bandcamp dans le cadre "Descriptif rapide"; On le trouve sur la page de l'album, en affichant le code source (ctrl+U), à la dernière ligne, après "album id"
+ - Numéro d'album bandcamp dans le cadre "Descriptif rapide"; On le trouve sur la page de l'album, en affichant le code source (ctrl+U), à la dernière ligne, après "album id". On peut éventuellement préciser une piste dans l'album en indiquant ID_ALBUM/track=ID_TRACK (on trouve ID_TRACK de la même manière sur la page de la piste en question)
  - Sous titre dans le cadre "Description de la page (meta) et sous titre"
 - Ajouter des liens dans la rubrique, penser à leur attribuer une classe d'icone et à les publier une fois enregistrés. 
  - Pour ajouter un lien, cliquer sur "Référencer un site" depuis la page de rubrique dans l'espace privé
