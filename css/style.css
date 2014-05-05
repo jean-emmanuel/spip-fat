@@ -204,7 +204,7 @@ html, body {
 		vertical-align:middle;
 		width: 50px;
 		height: 50px;
-		font-size:30px;
+		font-size:31px;
 		text-align:center;
 	}
   #knob i {
@@ -221,7 +221,6 @@ html, body {
 	z-index:1;
 	padding-top:1px;
 	background:#fafafa;
-	abackground:rgba(255,255,255,0.95);
 	position:relative;
 }
 .content {
@@ -526,6 +525,7 @@ html, body {
   outline:0;
   border-top:1px solid #ccc;
 }
+
 .modal-keywords a.keyword:first-child {
   border-top:0px;
 }
