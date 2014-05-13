@@ -15,7 +15,7 @@
 	<link rel="canonical" href="[(#ENV{page,#GET{page}}|=={sommaire}|?{#URL_SITE_SPIP,#URL_RUBRIQUE}|url_absolue)]" />
 	<style>
 	html, body {height:100%;margin:0;background-color:#000;}
-	.home-container{background-image: url([(#LOGO_RUBRIQUE|image_reduire{1920}|extraire_attribut{src}|url_absolue)]);background-size:cover;background-position:center;background-repeat:no-repeat;}
+	.home-container{background-image: url([(#LOGO_RUBRIQUE|image_reduire{1920}|extraire_attribut{src}|url_absolue)]);background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:fixed;}
 	</style>
 	<noscript>
 	<style>.sub-article{max-height:none!important;}</style>
