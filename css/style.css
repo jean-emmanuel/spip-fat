@@ -782,9 +782,11 @@ blockquote:before {
 }
 .spip_image.float-right {
 	margin-left:10px;
+	margin-top:0px;
 }
 .spip_image.float-left {
 	margin-right:10px;
+	margin-top:0px;
 }
 .spip_image img {
 	display:block;
