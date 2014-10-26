@@ -313,6 +313,7 @@ html, body {
 .fullscreen {
 	border:1px solid #333!important;
 	border-radius:0!important;
+	background-size:contain!important;
 }
 .fullscreen .swiper-container  {
 	height:100%;
