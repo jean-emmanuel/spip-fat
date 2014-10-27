@@ -170,7 +170,7 @@ function ajaxListInit() {
 	$('.sub-article-list').each(function(){
 		var list = $(this);
 		list.find('.modal-keywords a, .sub-article-keywords a, a.lien_pagination').off('click.ajax').on('click.ajax',function(e){e.preventDefault();ajaxList(list.attr('id'),$(this).attr('href'))});
-	  $('.modal-keywords').appendTo('body');
+	    list.find('.modal-keywords').appendTo('body');
 	  $('a[rel="modal:open"]').each(function(){
 	    $(this).attr('href','#'+$(this).attr('href').split("#")[1]);
 	  });
