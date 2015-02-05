@@ -66,11 +66,11 @@ Integration dans un article
 
 **Image :**
 ```  
-<imgX|align|nolink|noborder|width=XX|clear>
+<imgX|align|nolink=1|noborder=1|width=XX|clear>
 ```
  - align : left / right / center -> flottement de l'image
- - nolink : masque le lien vers l'image d'origine (non réduite)
- - noborder : masque la bordure de l'image (pratique pour les images sur fond transparent)
+ - nolink=1 : masque le lien vers l'image d'origine (non réduite)
+ - noborder=1 : masque la bordure de l'image (pratique pour les images sur fond transparent)
  - width : largeur de l'image en %
  - clear : arrête le flotement (float:left/right) après cette image.
  
