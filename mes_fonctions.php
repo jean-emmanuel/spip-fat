@@ -40,7 +40,7 @@
 	}
 
 	function balise_YT_API_KEY($p) {
-	    $p->code = $GLOBALS['youtube_api_key'];
+	    $p->code = "\$GLOBALS['youtube_api_key']";
 	    return $p;
 	}
 	function youtubeID($url) {
