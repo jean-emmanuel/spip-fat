@@ -9,7 +9,7 @@ Installation
 ============
 
 - Installer Spip 3 -> http://www.spip.net/fr_download
-- Configurer Spip (monsite.fr/ecrire) 
+- Configurer Spip (monsite.fr/ecrire)
 - Copier le contenu du git à la raçine de l'installation de spip dans un repertoire du nom de votre choix
 - Créer le ficher "mes_options.php" dans le dossier "config" et y ajouter ces lignes :
 
@@ -32,7 +32,7 @@ Aller dans l'espace privé (monsite.fr/ecrire)
  - Les rubriques sont triées par numéro de titre (1. 2. etc) puis par titre. La première rubrique se voit attribuer l'url du site comme url canonique et sert de page d'acceuil
  - Numéro d'album bandcamp dans le cadre "Descriptif rapide"; On le trouve sur la page de l'album, en affichant le code source (ctrl+U), à la dernière ligne, après "album id". On peut éventuellement préciser une piste dans l'album en indiquant ID_ALBUM/track=ID_TRACK (on trouve ID_TRACK de la même manière sur la page de la piste en question)
  - Sous titre dans le cadre "Description de la page (meta) et sous titre"
-- Ajouter des liens dans la rubrique, penser à leur attribuer une classe d'icone et à les publier une fois enregistrés. 
+- Ajouter des liens dans la rubrique, penser à leur attribuer une classe d'icone et à les publier une fois enregistrés.
  - Pour ajouter un lien, cliquer sur "Référencer un site" depuis la page de rubrique dans l'espace privé
  - Le dernier cadre permet de choisir l'icone du lien ajouté, on y indique une des classes proposées dans la liste ("Liste des Icones")
 - Ajouter une image de fond à la rubrique (logo).
@@ -43,25 +43,31 @@ Aller dans l'espace privé (monsite.fr/ecrire)
 Integration dans un article
 ===========
 
-**Bandcamp :** 
+**Bandcamp :**
 ```  
 <bandcamp|id=NUMERO_D'ALBUM>
 ```
 
-**Vimeo :** 
+**Vimeo :**
 ```  
 <vimeo|id=ID_VIDEO>
+<vimeo|url=URL_VIDEO>
+
 <album_vimeo|id=ID_ALBUM_VIMEO>
 ```
 
-**Youtube :** 
+**Youtube :**
+*Depuis que le support de l'API publique de youtube a été abandonné, l'integration de videos youtube ne fonctionne qu'avec une clé API youtube valide, à renseigner dans le fichier `mes_fonctions.php`.*
+
 ```  
 <youtube|id=ID_VIDEO>
+<youtube|url=URL_VIDEO>
 ```
 
-**Dailymotion :** 
+**Dailymotion :**
 ```  
 <dailymotion|id=ID_VIDEO>
+<dailymotion|url=URL_VIDEO>
 ```
 
 **Image :**
@@ -73,7 +79,7 @@ Integration dans un article
  - noborder=1 : masque la bordure de l'image (pratique pour les images sur fond transparent)
  - width : largeur de l'image en %
  - clear : arrête le flotement (float:left/right) après cette image.
- 
+
 **Document (affiche le type, la taille et le titre du document) :**
 ```  
 <docX>
@@ -98,7 +104,7 @@ Integration dans un article
  - Affiche les images ajoutées à l'article pointé par l'identifiant dans un carousel
  - Chaque image peut avoir un texte associé (indiqué dans le champ "Crédits")
 
-**Liste d'articles s'une sous rubrique :** 
+**Liste d'articles s'une sous rubrique :**
 ```  
 <liste|id=ID_RUBRIQUE|pagination=NB_PAR_PAGE(OPTIONNEL)|ARGS>
 ```
@@ -107,19 +113,19 @@ Integration dans un article
    - pagination ajax
    - filtre par mot-clé si les articles ont des mots-clés associés ( |nokeyword pour désactiver)
    - abonnement au flux rss ( |norss pour désactiver)
-   
-   
+
+
 **Code source :**
 ```  
 <code class="syntax LANG">
 CODE_SOURCE
 </code>
 ```
- - où LANG est l'un des langages supportés par le plugin jQuery.Syntax : http://www.codeotaku.com/projects/jquery-syntax/examples/index 
+ - où LANG est l'un des langages supportés par le plugin jQuery.Syntax : http://www.codeotaku.com/projects/jquery-syntax/examples/index
 
 
 
-Compatibilité 
+Compatibilité
 =============
 
 - Spip 3.0.XX
@@ -127,7 +133,7 @@ Compatibilité
 - Accessible sans javascript.
 - Mobile : à peu près tous les navigateurs mobiles modernes.
 
-Performances 
+Performances
 =============
 
 Environ 90/100 sur PageSpeed Insight.
