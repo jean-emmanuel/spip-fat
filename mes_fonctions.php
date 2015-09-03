@@ -1,7 +1,7 @@
 <?php
 
 	// Set your own api key here to enable youtube videos integration
-	$youtube_api_key = "";
+	$GLOBALS['youtube_api_key'] = "";
 
 	///////////////////////////////////
 	///////////////////////////////////
@@ -40,7 +40,7 @@
 	}
 
 	function balise_YT_API_KEY($p) {
-	    $p->code = $youtube_api_key;
+	    $p->code = $GLOBALS['youtube_api_key'];
 	    return $p;
 	}
 	function youtubeID($url) {

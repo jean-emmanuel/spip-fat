@@ -1,10 +1,10 @@
-#SET{apikey,#YT_API_KEY}[(#GET{apikey}|=={""}|oui)<p>Could not retrieve youtube video informations, $youtube_api_key must be set in file 'mes_fonctions.php'.</p>]
+#SET{apikey,#YT_API_KEY}[(#GET{apikey}|=={""}|oui)<p>Could not retrieve youtube video informations, $GLOBAL['youtube_api_key'] must be set in file 'mes_fonctions.php'.</p>]
 
 [(#ENV{args/id}|oui)#SET{id,#ENV{id}}]
 [(#ENV{args/url}|oui)#SET{id,#ENV{args/url}|youtubeID}]
 
 #SET{json, https://www.googleapis.com/youtube/v3/videos?}
-#SET{json, #GET{json}|concat{part=snippet&fields=items(snippet(title,thumbnails))&key=,#YT_API_KEY,&id=#GET{id}}}
+#SET{json, #GET{json}|concat{part=snippet&fields=items(snippet(title,thumbnails))&key=,#GET{apikey},&id=#GET{id}}}
 
 <BOUCLE_yt(DATA){datapath items}{source json, #GET{json}}>
 #SET{title,#VALEUR{snippet/title}}
