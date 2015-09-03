@@ -1,5 +1,11 @@
-<div class="vimeo ui-container" id="#ENV{args/id}">
-	<div class="ui-element top-left text"><i class="fa fa-cog fa-spin"></i></div>
-	<a href="#" class="ui-element center-center"><i class="fa fa-play"></i></a>
-	<div class="alt"><a href="http://vimeo.com/#ENV{args/id}">http://vimeo.com/#ENV{args/id}</a></div>
-</div>
+[(#ENV{args/id}|oui)#SET{id,#ENV{id}}]
+[(#ENV{args/url}|oui)#SET{id,#ENV{args/url}|vimeoID}]
+
+#SET{json, http://vimeo.com/api/v2/video/#GET{id}.json}
+<BOUCLE_vimeo(DATA){source json, #GET{json}}>
+#SET{title,#VALEUR{title}}
+#SET{bg,#VALEUR{thumbnail_large}|sinon{#VALEUR{thumbnail_medium}}}
+#SET{src,http://player.vimeo.com/video/#GET{id}?autoplay=1}
+</BOUCLE_vimeo>
+
+#INCLURE{fond=modeles/video,title=#GET{title},bg=#GET{bg},src=#GET{src},type=vimeo}

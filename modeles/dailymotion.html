@@ -1,5 +1,14 @@
-<div class="dailymotion ui-container" id="#ENV{args/id}">
-	<div class="ui-element top-left normal"><i class="fa fa-cog fa-spin"></i></div>
-	<a href="#" class="ui-element center-center"><i class="fa fa-play"></i></a>
-	<div class="alt"><a href="http://www.dailymotion.com/video/#ENV{args/id}">http://www.api.dailymotion.com/video/#ENV{args/id}</a></div>
-</div>
+[(#ENV{args/id}|oui)#SET{id,#ENV{id}}]
+[(#ENV{args/url}|oui)#SET{id,#ENV{args/url}|dailymotionID}]
+
+#SET{json, https://api.dailymotion.com/video/#GET{id}?fields=}
+#SET{json, #GET{json}|concat{'title,thumbnail_url,embed_url'}}
+#SET{data,#ARRAY}
+
+<BOUCLE_dailymotion(DATA){source json, #GET{json}}>#SET{data,#GET{data}|push{#VALEUR}}</BOUCLE_dailymotion>
+
+#SET{title,#GET{data/0}}
+#SET{bg,#GET{data/1}}
+#SET{src,#GET{data/2}?autoplay=1}
+
+#INCLURE{fond=modeles/video,title=#GET{title},bg=#GET{bg},src=#GET{src},type=dailymotion}

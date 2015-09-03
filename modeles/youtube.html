@@ -1,5 +1,15 @@
-<div class="youtube ui-container" id="#ENV{args/id}">
-	<div class="ui-element top-left text"><i class="fa fa-cog fa-spin"></i></div>
-	<a href="#" class="ui-element center-center"><i class="fa fa-play"></i></a>
-	<div class="alt"><a href="http://www.youtube.com/watch?v=#ENV{args/id}">http://www.youtube.com/watch?v=#ENV{args/id}</a></div>
-</div>
+#SET{apikey,#YT_API_KEY}[(#GET{apikey}|=={""}|oui)<p>Could not retrieve youtube video informations, $youtube_api_key must be set in file 'mes_fonctions.php'.</p>]
+
+[(#ENV{args/id}|oui)#SET{id,#ENV{id}}]
+[(#ENV{args/url}|oui)#SET{id,#ENV{args/url}|youtubeID}]
+
+#SET{json, https://www.googleapis.com/youtube/v3/videos?}
+#SET{json, #GET{json}|concat{part=snippet&fields=items(snippet(title,thumbnails))&key=,#YT_API_KEY,&id=#GET{id}}}
+
+<BOUCLE_yt(DATA){datapath items}{source json, #GET{json}}>
+#SET{title,#VALEUR{snippet/title}}
+#SET{bg,#VALEUR{snippet/thumbnails/high/url}|sinon{#VALEUR{snippet/thumbnails/medium/url}}}
+#SET{src,http://www.youtube.com/embed/#GET{id}?rel=0&autoplay=1}
+</BOUCLE_yt>
+
+#INCLURE{fond=modeles/video,title=#GET{title},bg=#GET{bg},src=#GET{src},type=youtube}
